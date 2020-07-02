@@ -14,3 +14,15 @@ To Do:
 - create our db o hold our user table 
 - write the routes in our express server(in a controller) that will 
 handle req/res to authentication(/login, /register)
+
+Favorite
+------------
+id: integer
+name: string
+userId: fk integer
+
+Menu
+--------------
+id: integer
+name: string
+userId: fk integer 
