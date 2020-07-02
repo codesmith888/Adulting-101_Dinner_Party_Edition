@@ -21,8 +21,12 @@ id: integer
 name: string
 userId: fk integer
 
+sequelize model:create --name favorite --attributes name:string,userId:integer
+
 Menu
 --------------
 id: integer
 name: string
 userId: fk integer 
+
+sequelize model:create --name menu --attributes name:string,userId:integer
