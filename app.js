@@ -10,6 +10,7 @@ const passport = require('./config/ppConfig');
 const db = require('./models');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const axios = require('axios');
 
 // app setup
 const app = Express();
@@ -56,8 +57,9 @@ app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 })
 
-//include auth controller
+//include controllers
 app.use('/auth', require('./controllers/auth'))
+app.use('/adulting101', require('./controllers/adulting101'));
 
 //Initialize app on Port 
 app.listen(process.env.PORT || 3000, (() => {
