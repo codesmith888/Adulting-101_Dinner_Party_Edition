@@ -8,8 +8,7 @@ router.get('/', ((req, res) => {
 }))
 
 router.post('/new', ((req, res) => {
-  console.log('hello')
-  let recipeUrl = `http://www.recipepuppy.com/api/?q=appetizer&i=${req.body.ingredients}`
+  let recipeUrl = `http://www.recipepuppy.com/api/?q=appetizer&i=${req.body.app_ingredients}`
   axios.get(recipeUrl).then((apiResponse) => {
     let appetizerOptions = apiResponse.data
     console.log(appetizerOptions)
