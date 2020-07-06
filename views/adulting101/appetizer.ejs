@@ -1,11 +1,10 @@
 <h2>Choose Your Appetizer:</h2>
-<p><% appetizer.results.forEach((result) => { %>
-  <p><%= result.title %></p>
-  <a href="<%= result.href %>">Click to View Full Recipe</a></p>
-  <img src="<%= result.thumbnail %>">
-  <form method="POST" action="/adulting101/menu">
+<form method="POST" action="adulting101/appetizer"></form>
+  <p><% appetizer.results.forEach((result) => { %>
+    <p id="appTitle"><%= result.title %></p>
+    <a id="appURL" href="<%= result.href %>">Click to View Full Recipe</a></p>
+    <img id="appPic" src="<%= result.thumbnail %>">
     <button type="Submit">Add to Menu</button> 
-  </form>
-
-<% }) %>
-</p>
+  <% }) %>
+  </p>  
+</form>

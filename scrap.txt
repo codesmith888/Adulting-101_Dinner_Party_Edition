@@ -28,5 +28,9 @@ Menu
 id: integer
 name: string
 userId: fk integer 
+appetizer: text
+main: text
+side: text
+dessert: text
 
-sequelize model:create --name menu --attributes name:string,userId:integer
+sequelize model:create --name menu --attributes name:string,userId:integer,appetizer:text,main:string,side:string,dessert:string
