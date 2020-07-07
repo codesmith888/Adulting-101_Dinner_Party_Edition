@@ -1,0 +1,55 @@
+<form method="POST" action="./menu">
+  <div id="appetizers">
+    <h2>Choose Your Appetizer:</h2>
+    <p><% appetizer.results.forEach((result) => { %>
+      <a id="appURL" href="<%= result.href %>"><%= result.title %></a>
+      <img id="appPic" src="<%= result.thumbnail %>">
+      <input type="hidden" name="appTitle" value="<%= result.title %>">
+      <input type="hidden" name="appURL" value="<%= result.href %>">
+      <input type="hidden" name="appPic" value="<%= result.thumbnail %>">
+      <input type="checkbox" id="appetizer" name="appetizer" value="<%= result.title %>">
+      <label for="appetizer">I choose this appetizer.</label>
+    <% }) %>
+    </p>  
+  </div>
+  <div id="mains">
+    <h2>Choose Your Main Course:</h2>
+    <p><% main.results.forEach((result) => { %>
+      <a id="mainURL" href="<%= result.href %>"><%= result.title %></a></p>
+      <img id="mainPic" src="<%= result.thumbnail %>">
+      <input type="hidden" name="mainTitle" value="<%= result.title %>">
+      <input type="hidden" name="mainURL" value="<%= result.href %>">
+      <input type="hidden" name="mainPic" value="<%= result.thumbnail %>">
+      <input type="checkbox" id="mainCourse" name="main" value="<%= result.title%>">
+      <label for="mainCourse">I choose this main course.</label>
+    <% }) %>
+    </p>  
+  </div>
+  <div id="sides">
+    <h2>Choose Your Side Dish:</h2>
+    <p><% side.results.forEach((result) => { %>
+      <a id="sideURL" href="<%= result.href %>"><%= result.title %></a>
+      <img id="sidePic" src="<%= result.thumbnail %>">
+        <input type="hidden" name="sideTitle" value="<%= result.title %>">
+        <input type="hidden" name="sideURL" value="<%= result.href %>">
+        <input type="hidden" name="sidePic" value="<%= result.thumbnail %>">
+        <input type="checkbox" id="sideDish" name="side" value="<%= result.title %>">
+        <label for="sideDish">I choose this side dish.</label>
+    <% }) %>
+    </p>  
+  </div>
+  <div id="desserts">
+    <h2>Choose Your Dessert:</h2>
+    <p><% dessert.results.forEach((result) => { %>
+      <a id="dessertURL" href="<%= result.href %>"><%= result.title %></a>
+      <img id="dessertPic" src="<%= result.thumbnail %>">
+        <input type="hidden" name="dessertTitle" value="<%= result.title %>">
+        <input type="hidden" name="dessertURL" value="<%= result.href %>">
+        <input type="hidden" name="dessertPic" value="<%= result.thumbnail %>">
+        <input type="checkbox" id="dessert" name="dessert" value="<%= result.title %>">
+        <label for="dessert">I choose this dessert.</label>
+    <% }) %>
+    </p>  
+  </div>
+  <input type="submit" value="Add to Menu">
+</form>
