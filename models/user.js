@@ -45,6 +45,7 @@ module.exports = function(sequelize, DataTypes) {
   });
   user.associate = function(models) {
     //TODO: any user associate you want
+    models.user.hasMany(models.menu)
   }
   //runs a function that compares the typed password and the hashed password to compare
   user.prototype.validPassword = function(passwordTyped) {

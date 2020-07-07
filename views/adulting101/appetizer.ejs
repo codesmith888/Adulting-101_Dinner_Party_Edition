@@ -1,10 +1,15 @@
 <h2>Choose Your Appetizer:</h2>
-<form method="POST" action="adulting101/appetizer"></form>
-  <p><% appetizer.results.forEach((result) => { %>
+
+  <p><% appetizer.results.forEach((result, index) => { %>
     <p id="appTitle"><%= result.title %></p>
     <a id="appURL" href="<%= result.href %>">Click to View Full Recipe</a></p>
     <img id="appPic" src="<%= result.thumbnail %>">
-    <button type="Submit">Add to Menu</button> 
+    <form method="POST" action="./menu">
+      <input type="hidden" name="appTitle" value="<%= result.title %>">
+      <input type="hidden" name="appURL" value="<%= result.href %>">
+      <input type="hidden" name="appPic" value="<%= result.thumbnail %>">
+      <button type="Submit">Add to Menu</button> 
+    </form>
   <% }) %>
   </p>  
-</form>
+

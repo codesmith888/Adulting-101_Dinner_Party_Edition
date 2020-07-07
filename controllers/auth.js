@@ -68,22 +68,6 @@ router.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
-router.post('/adulting101/appetizer', ((req, res) => {
-  db.user.findOne({
-    where: {
-      name: currentUser.name
-    }
-  }).then(foundUser => {
-    db.menu.create({
-    name: req.body.name,
-  }).then((newMenu) => {
-    console.log('You created a new menu called', newMenu.name)
-    res.render('./adulting101/newAppetizer')
-  }).catch((error) => 
-  console.log(error)
-  )
-  })
-}))
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/', 
