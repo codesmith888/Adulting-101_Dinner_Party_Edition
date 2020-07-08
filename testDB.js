@@ -83,7 +83,15 @@ router.post('./menu', ((req, res) => {
   }).then(newMenu => {
     foundUser.addMenu(newMenu)
     console.log(`You created a new menu called ${newMenu.name}`)
+    let menuItems = JSON.stringify(newMenu)
+    let menuData = JSON.parse(menuItems)
+
   }).then(relationInfo => {
+    db.menu.findOne({
+      where: {
+        name: req.body.menuName
+      }
+    })
     let chosenAppetizer = req.body.appetizerInfo
     let chosenMain = req.body.mainCourseInfo
     let chosenSide = req.body.sideDishInfo
@@ -92,5 +100,17 @@ router.post('./menu', ((req, res) => {
   }).catch((error) => 
   console.log(error)
   )
+  })
+}))
+
+router.get('/menu', ((req, res) => {
+  db.menu.findAll({
+    where: {
+      userId: req.user.id,
+    }
+  }).then((menus) => {
+    let menuList = JSON.stringify(menus);
+    let menuData = JSON.parse(menuList)
+    res
   })
 }))

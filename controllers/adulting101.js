@@ -27,66 +27,31 @@ router.post('/newMenu', ((req, res) => {
   let appetizerUrl = `http://www.recipepuppy.com/api/?q=appetizer&i=${req.body.app_ingredients}`
   axios.get(appetizerUrl).then((apiResponse) => {
     let appetizerOptions = apiResponse.data
-  let mainUrl = `http://www.recipepuppy.com/api/?&i=${req.body.main_ingredients}`
+    if (appetizerOptions.thumbnail = "") {
+      appetizerOptions.splice
+    }
+    let mainUrl = `http://www.recipepuppy.com/api/?&i=${req.body.main_ingredients}`
     axios.get(mainUrl).then((apiResponse) => {
-    let mainOptions = apiResponse.data
-  let sideUrl =  `http://www.recipepuppy.com/api/?q=side&i=${req.body.side_ingredients}`
-    axios.get(sideUrl).then((apiResponse) => {
-      let sideOptions = apiResponse.data
-  let dessertUrl = `http://www.recipepuppy.com/api/?q=dessert&i=${req.body.dessert_ingredients}`
-    axios.get(dessertUrl).then((apiResponse) => {
-      let dessertOptions = apiResponse.data
-  res.render('adulting101/choose', {dessert: dessertOptions, appetizer: appetizerOptions, main: mainOptions, side: sideOptions})
-      }).catch((error) => {
-        console.log(error)
+      let mainOptions = apiResponse.data
+      let sideUrl =  `http://www.recipepuppy.com/api/?q=side&i=${req.body.side_ingredients}`
+      axios.get(sideUrl).then((apiResponse) => {
+        let sideOptions = apiResponse.data
+        let dessertUrl = `http://www.recipepuppy.com/api/?q=dessert&i=${req.body.dessert_ingredients}`
+        axios.get(dessertUrl).then((apiResponse) => {
+          let dessertOptions = apiResponse.data
+          res.render('adulting101/choose', {dessert: dessertOptions, appetizer: appetizerOptions, main: mainOptions, side: sideOptions})
+        }).catch((error) => {
+          console.log(error)
         })
       })
     })
   })
 }));
 
-
-
-// router.post('/menu', ((req, res) => {
-//   let chosenAppetizer = req.body.appetizer
-//     function showDetails(chosenAppetizer) {
-//       let appTitle = chosenAppetizer.getAttribute("appTitle")
-//       let appURL = chosenAppetizer.getAttribute("appURL")
-//       let appPic= chosenAppetizer.getAttribute("appPic")
-//     }
-//   let chosenMain = req.body.mainCourse
-//   let chosenSide = req.body.sideDish
-//   let chosenDessert = req.body.dessert
-//   console.log(chosenAppetizer)
-//   res.render('./adulting101/menu', {appetizer: appTitle, appetizer: appUrl, appetizer: appPic, main: chosenMain, side: chosenSide, dessert: chosenDessert})
-// }))
-
 router.get('/newMenu', ((req, res) => {
   res.render('./adulting101/newMenu')
 }))
 
-// router.post('./menu', ((req, res) => {
-//   db.user.findOne({
-//     where: {
-//       id: req.user.id
-//     }
-//   }).then(foundUser => {
-//     db.menu.create({
-//       name: req.body.menuName,
-//       appetizer: req.body.appetizer,
-//       main: req.body.mainCourse,
-//       side: req.body.sideDish,
-//       dessert: req.body.dessert
-//   }).then(newMenu => {
-//     foundUser.addMenu(newMenu)
-//     console.log(`You created a new menu called ${newMenu.name}`)
-//   }).then(relationInfo => {
-//     res.render('adulting101/menu')
-//   }).catch((error) => 
-//   console.log(error)
-//   )
-//   })
-// }))
 
 router.post('/menu', ((req, res) => {
   console.log(req.body)
@@ -101,20 +66,22 @@ router.post('/menu', ((req, res) => {
       main: req.body.mainCourseInfo,
       side: req.body.sideDishInfo,
       dessert: req.body.dessertInfo
-  }).then(newMenu => {
-    foundUser.addMenu(newMenu)
-    console.log(`You created a new menu called ${newMenu.name}`)
-  }).then(relationInfo => {
-    let chosenAppetizer = req.body.appetizerInfo
-    let chosenMain = req.body.mainCourseInfo
-    let chosenSide = req.body.sideDishInfo
-    let chosenDessert = req.body.dessertInfo
-    res.render('adulting101/menu', {appetizer: chosenAppetizer, main: chosenMain, side: chosenSide, dessert: chosenDessert})
-  }).catch((error) => 
-  console.log(error)
-  )
+    }).then(newMenu => {
+      foundUser.addMenu(newMenu)
+      console.log(`You created a new menu called ${newMenu.name}`)
+    }).then(relationInfo => {
+      let chosenAppetizer = req.body.appetizerInfo
+      let chosenMain = req.body.mainCourseInfo
+      let chosenSide = req.body.sideDishInfo
+      let chosenDessert = req.body.dessertInfo
+      res.render('adulting101/menu', {appetizer: chosenAppetizer, main: chosenMain, side: chosenSide, dessert: chosenDessert})
+    }).catch((error) => 
+      console.log(error)
+    )
   })
 }))
+
+
 // router.get('/newMain', ((req, res) => {
 //   res.render('./adulting101/newMain')
 // }))
