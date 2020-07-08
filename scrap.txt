@@ -34,3 +34,98 @@ side: text
 dessert: text
 
 sequelize model:create --name menu --attributes name:string,userId:integer,appetizer:text,main:string,side:string,dessert:string
+
+
+MENU PAGE: 
+<div id=chosenMain>
+  <h4>Main Course:</h4>
+    <p><%= main.mainTitle %></p>
+    <a href="<%= main.mainURL %>">Click to View Recipe</a>
+    <img src="<%= main.mainPic %>">
+</div>
+<div id=chosenSide>
+  <h4>Side Dish:</h4>
+    <p><%= side.sideTitle %></p>
+    <a href="<%= side.sideURL %>">Click to View Recipe</a>
+    <img src="<%= side.sidePic %>">
+</div>
+<div id="chosenDessert">
+  <h4>Dessert:</h4>
+    <p><%= dessert.dessertTitle %></p>
+    <a href="<%= dessert.dessertURL %>">Click to View Recipe</a>
+    <img src="<%= dessert.dessertPic %>">
+</div>
+
+----------------------------
+
+  <div id="menuName">
+    <h2>Name Your Menu:</h2>
+    <p>Name your custom menu below (think 'Summer Dinner' or 'Bridal Shower Brunch'), then select an appetizer, main course, side dish and dessert by checking the box next to the one you want to add. Finally, click "Add to Menu" to save your menu. Don't worry, you can always update your menu on the next page!</p>
+    <form method="POST" action="./menu">
+      <label for="menuName">Menu Name:</label>
+      <input type="text" name="menuName">
+      <input type="submit" name="submitName" value="Name Your Menu!">
+    </form>
+  </div>
+  <div id="appetizers">
+    <h2>Choose Your Appetizer:</h2>
+      <p><% appetizer.results.forEach((result) => { %>
+        <h4><%= result.title %></h4>  
+        <img id="appPic" src="<%= result.thumbnail %>">
+        <a id="appURL" href="<%= result.href %>" target="appetizer_iframe">Click to view full recipe.</a></p>
+        <iframe name="appetizer_iframe" height="500px" width="500px"></iframe>
+      <form method="POST" action="./menu">
+        <input type="hidden" name="appetizerInfo" value="<%= result.title %> + <%=result.href %> + <%= result.thumbnail %>">
+        <input type="hidden" name="appTitle" value="<%= result.title %>">
+        <input type="hidden" name="appURL" value="<%= result.href %>">
+        <input type="hidden" name="appPic" value="<%= result.thumbnail %>">
+        <input type="submit" name="submitAppetizer" value="Add to my menu.">
+      <% }) %>
+      </form> 
+  </div>
+  <div id="mains">
+    <h2>Choose Your Main Course:</h2>
+      <p><% main.results.forEach((result) => { %>
+        <h4><%= result.title %></h4>
+        <img id="mainPic" src="<%= result.thumbnail %>">
+        <iframe id="mainURL" src="<%= result.href %>"></iframe></p>
+        <form method="POST" action="./menu">
+        <input type="hidden" name="mainCourseInfo" value="<%= result.title %> + <%= result.href %> + <%= result.thumbnail %>">
+        <input type="hidden" name="mainTitle" value="<%= result.title %>">
+        <input type="hidden" name="mainURL" value="<%= result.href %>">
+        <input type="hidden" name="mainPic" value="<%= result.thumbnail %>">
+        <input type="submit" name="submitMainCourse" value="Add to my menu.">
+      <% }) %>
+    </form>  
+  </div>
+  <div id="sides">
+    <h2>Choose Your Side Dish:</h2>
+      <p><% side.results.forEach((result) => { %>
+        <h4><%= result.title %></h4>
+        <img id="sidePic" src="<%= result.thumbnail %>">
+        <iframe id="sideURL" href="<%= result.href %>"></iframe></p>
+        <form method="POST" action="./menu">
+          <input type="hidden" name="sideDishInfo" value="<%= result.title %> + <%= result.href %> + <%= result.thumbnail %>">
+          <input type="hidden" name="sideTitle" value="<%= result.title %>">
+          <input type="hidden" name="sideURL" value="<%= result.href %>">
+          <input type="hidden" name="sidePic" value="<%= result.thumbnail %>">
+          <input type="submit" name="submitSideDish" value="Add to my menu.">
+      <% }) %>
+    </form>
+  </div>
+  <div id="desserts">
+    <h2>Choose Your Dessert:</h2>
+      <p><% dessert.results.forEach((result) => { %>
+        <h4><%= result.title %></h4>
+        <img id="dessertPic" src="<%= result.thumbnail %>">
+        <iframe id="dessertURL" href="<%= result.href %>"></iframe></p>
+        <form method="POST" action="./menu">
+          <input type="hidden" name="dessertInfo" value="<%= result.title %> + <%= result.href %> + <%= result.thumbnail %>">
+          <input type="hidden" name="dessertTitle" value="<%= result.title %>">
+          <input type="hidden" name="dessertURL" value="<%= result.href %>">
+          <input type="hidden" name="dessertPic" value="<%= result.thumbnail %>">
+          <input type="submit" name="submitDessert" value="Add to my menu.">
+      <% }) %>
+    </form> 
+  </div>
+  

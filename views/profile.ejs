@@ -2,8 +2,6 @@
 
 <h4>Have a dinner party and don’t know what to cook? WELCOME TO ADULTING! You don’t have time to go to the store because adulting is HARD, so type in a few ingredients you already have in the kitchen and we will provide you with a full menu (appetizers, mains, sides & dessert!). </h4>
 <p>To get started, simply name your custom menu below (think 'Summer Dinner' or 'Bridal Shower Brunch') and click "Let's make a menu!" to begin choosing items for your menu.</p>
-<form method="GET" action="adulting101/newAppetizer">
-  <label for="menuName">Menu Name:</label>
-  <input type="text" name="menuName">
-  <button type="Submit">Let's make a menu!</button>
+<form method="POST" action="./adulting101/createMenu">
+  <input type="Submit" value="Let's make a menu!">
 </form>

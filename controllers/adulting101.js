@@ -4,13 +4,12 @@ var router = express.Router();
 const axios = require('axios');
 let newMenu =
 
-router.get('/newAppetizer', ((req, res) => {
+router.post('/createMenu', ((req, res) => {
   db.user.findOne({
     where: {
       id: req.user.id
     }
   }).then(foundUser => {
-    console.log(foundUser,'☎️')
     db.menu.create({
       name: req.body.menuName,
   }).then(newMenu => {
@@ -48,19 +47,74 @@ router.post('/newMenu', ((req, res) => {
 
 
 
-router.post('/menu', ((req, res) => {
-  let chosenAppetizer = req.body.appetizer
-  let chosenMain = req.body.mainCourse
-  let chosenSide = req.body.sideDish
-  let chosenDessert = req.body.dessert
-  console.log(chosenAppetizer)
-  res.render('./adulting101/menu', {appetizer: chosenAppetizer, main: chosenMain, side: chosenSide, dessert: chosenDessert})
-}))
+// router.post('/menu', ((req, res) => {
+//   let chosenAppetizer = req.body.appetizer
+//     function showDetails(chosenAppetizer) {
+//       let appTitle = chosenAppetizer.getAttribute("appTitle")
+//       let appURL = chosenAppetizer.getAttribute("appURL")
+//       let appPic= chosenAppetizer.getAttribute("appPic")
+//     }
+//   let chosenMain = req.body.mainCourse
+//   let chosenSide = req.body.sideDish
+//   let chosenDessert = req.body.dessert
+//   console.log(chosenAppetizer)
+//   res.render('./adulting101/menu', {appetizer: appTitle, appetizer: appUrl, appetizer: appPic, main: chosenMain, side: chosenSide, dessert: chosenDessert})
+// }))
 
 router.get('/newMenu', ((req, res) => {
   res.render('./adulting101/newMenu')
 }))
 
+// router.post('./menu', ((req, res) => {
+//   db.user.findOne({
+//     where: {
+//       id: req.user.id
+//     }
+//   }).then(foundUser => {
+//     db.menu.create({
+//       name: req.body.menuName,
+//       appetizer: req.body.appetizer,
+//       main: req.body.mainCourse,
+//       side: req.body.sideDish,
+//       dessert: req.body.dessert
+//   }).then(newMenu => {
+//     foundUser.addMenu(newMenu)
+//     console.log(`You created a new menu called ${newMenu.name}`)
+//   }).then(relationInfo => {
+//     res.render('adulting101/menu')
+//   }).catch((error) => 
+//   console.log(error)
+//   )
+//   })
+// }))
+
+router.post('/menu', ((req, res) => {
+  console.log(req.body)
+  db.user.findOne({
+    where: {
+      id: req.user.id
+    }
+  }).then(foundUser => {
+    db.menu.create({
+      name: req.body.menuName,
+      appetizer: req.body.appetizerInfo,
+      main: req.body.mainCourseInfo,
+      side: req.body.sideDishInfo,
+      dessert: req.body.dessertInfo
+  }).then(newMenu => {
+    foundUser.addMenu(newMenu)
+    console.log(`You created a new menu called ${newMenu.name}`)
+  }).then(relationInfo => {
+    let chosenAppetizer = req.body.appetizerInfo
+    let chosenMain = req.body.mainCourseInfo
+    let chosenSide = req.body.sideDishInfo
+    let chosenDessert = req.body.dessertInfo
+    res.render('adulting101/menu', {appetizer: chosenAppetizer, main: chosenMain, side: chosenSide, dessert: chosenDessert})
+  }).catch((error) => 
+  console.log(error)
+  )
+  })
+}))
 // router.get('/newMain', ((req, res) => {
 //   res.render('./adulting101/newMain')
 // }))
