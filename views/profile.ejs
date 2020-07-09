@@ -9,7 +9,9 @@
 <h1>
   <ul>
   <% allMenus.forEach((menu) => { %>
-    <li> <%= menu.name %> </li>
+    <li>
+      <a href="/<%= menu.name %>"><%= menu.name %></a>
+    </li>
  <% }) %>
   </ul> 
 </h1>
