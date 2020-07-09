@@ -2,52 +2,76 @@
   <div id="menuName">
     <h2>Name Your Menu:</h2>
     <p>Name your custom menu below (think 'Summer Dinner' or 'Bridal Shower Brunch'), then select an appetizer, main course, side dish and dessert by clicking the circle next to the one you want to add. Finally, click "Add to Menu" to save your menu. Don't worry, you can always update your menu on the next page!</p>
-      <label for="menuName">Menu Name:</label>
-      <input type="text" name="menuName">
+    <label for="menuName">Menu Name:</label>
+    <input type="text" name="menuName"/>
   </div>
   <div id="appetizers">
     <h2>Choose Your Appetizer:</h2>
+    <ul>
       <% appetizer.results.forEach((result) => { %>
-        <p>
+        <li>
           <h4><%= result.title %></h4>  
-          <img id="appPic" src="<%= result.thumbnail %>">
-          <button id="appetizerModalButton">Click to View Recipe</button>
+          <img id="appPic" src="<%= result.thumbnail %>"/>
+          <button class="modalButton">Click to View Recipe</button>
           <div class="modal">
-              <span id="closeAppetizerModal" class="close">&times;</span>
-              <h2><%= result.title %></h2>
-              <iframe name="app_iframe" id="appURL" src="<%= result.href %>" height="600px" width="600px"></iframe> 
-            </div>
+              <span class="close">&times;</span>
+              <iframe data-target="<%= result.href %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
           </div>
-          <input type="radio" name="appetizerInfo" value="<%= result.title %>|<%=result.href %>|<%= result.thumbnail %>">
-        </p>
-      <% }) %> 
+          <input type="radio" name="appetizerInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>
+        </li>
+      <% }); %>
+    </ul>
   </div>
   <div id="mains">
     <h2>Choose Your Main Course:</h2>
-      <p><% main.results.forEach((result) => { %>
-        <h4><%= result.title %></h4>
-        <img id="mainPic" src="<%= result.thumbnail %>">
-        <iframe id="mainURL" src="<%= result.href %>"></iframe></p>
-        <input type="radio" name="mainCourseInfo" value="<%= result.title %>|<%= result.href %>|<%= result.thumbnail %>">
+    <ul>
+      <% main.results.forEach((result) => { %>
+        <li>
+          <h4><%= result.title %></h4>
+          <img id="mainPic" src="<%= result.thumbnail %>">
+          <button class="modalButton">Click to View Recipe</button>
+          <div class="modal">
+              <span class="close">&times;</span>
+              <iframe data-target="<%= result.href %>" src="" name="mainIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+          </div>
+          <input type="radio" name="mainCourseInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
+        </li>  
       <% }) %>
+    </ul>
   </div>
   <div id="sides">
     <h2>Choose Your Side Dish:</h2>
-      <p><% side.results.forEach((result) => { %>
-        <h4><%= result.title %></h4>
-        <img id="sidePic" src="<%= result.thumbnail %>">
-        <iframe id="sideURL" href="<%= result.href %>"></iframe></p>
-        <input type="radio" name="sideDishInfo" value="<%= result.title %>|<%= result.href %>|<%= result.thumbnail %>">
+    <ul>
+      <% side.results.forEach((result) => { %>
+        <li>
+          <h4><%= result.title %></h4>
+          <img id="sidePic" src="<%= result.thumbnail %>">
+          <button class="modalButton">Click to View Recipe</button>
+          <div class="modal">
+              <span class="close">&times;</span>
+              <iframe data-target="<%= result.href %>" src="" name="sideIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+          </div>
+          <input type="radio" name="sideDishInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
+        </li>  
       <% }) %>
+    </ul>
   </div>
   <div id="desserts">
     <h2>Choose Your Dessert:</h2>
-      <p><% dessert.results.forEach((result) => { %>
-        <h4><%= result.title %></h4>
-        <img id="dessertPic" src="<%= result.thumbnail %>">
-        <iframe id="dessertURL" href="<%= result.href %>"></iframe></p>
-        <input type="radio" name="dessertInfo" value="<%= result.title %>|<%= result.href %>|<%= result.thumbnail %>">
+    <ul>
+      <% dessert.results.forEach((result) => { %>
+        <li>
+          <h4><%= result.title %></h4>
+          <img id="dessertPic" src="<%= result.thumbnail %>">
+          <button class="modalButton">Click to View Recipe</button>
+          <div class="modal">
+              <span class="close">&times;</span>
+              <iframe data-target="<%= result.href %>" src="" name="dessertIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+          </div>
+          <input type="radio" name="dessertInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
+        </li>  
       <% }) %>
+    </ul>
   </div>
   <input type="submit" name="submitName" value="Add Your Menu">
 </form>

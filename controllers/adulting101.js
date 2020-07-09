@@ -52,9 +52,7 @@ router.get('/newMenu', ((req, res) => {
   res.render('./adulting101/newMenu')
 }))
 
-
 router.post('/menu', ((req, res) => {
-  console.log(req.body)
   db.user.findOne({
     where: {
       id: req.user.id
@@ -66,20 +64,54 @@ router.post('/menu', ((req, res) => {
       main: req.body.mainCourseInfo,
       side: req.body.sideDishInfo,
       dessert: req.body.dessertInfo
-    }).then(newMenu => {
-      foundUser.addMenu(newMenu)
-      console.log(`You created a new menu called ${newMenu.name}`)
-    }).then(relationInfo => {
-      let chosenAppetizer = req.body.appetizerInfo
-      let chosenMain = req.body.mainCourseInfo
-      let chosenSide = req.body.sideDishInfo
-      let chosenDessert = req.body.dessertInfo
-      res.render('adulting101/menu', {appetizer: chosenAppetizer, main: chosenMain, side: chosenSide, dessert: chosenDessert})
-    }).catch((error) => 
-      console.log(error)
-    )
+  }).then(newMenu => {
+    foundUser.addMenu(newMenu)
+    console.log(`You created a new menu called ${newMenu.name}`)
+    let menuItems = JSON.stringify(newMenu)
+    let menuData = JSON.parse(menuItems)
+    let appetizer = menuData.appetizer
+    let appetizerData = appetizer.split("|")
+    let main = menuData.main
+    let mainCourseData = main.split("|")
+    let side = menuData.side
+    let sideData = side.split("|")
+    let dessert = menuData.dessert
+    let dessertData = dessert.split("|")
+    res.render('adulting101/menu', {currentAppetizer: appetizerData, currentMain: mainCourseData, currentSide: sideData, currentDessert: dessertData})
+  }).catch((error) => 
+  console.log(error)
+  )
   })
 }))
+
+//--------------THIS ROUTE BELOW WORKS----------//
+// router.post('/menu', ((req, res) => {
+//   console.log(req.body)
+//   db.user.findOne({
+//     where: {
+//       id: req.user.id
+//     }
+//   }).then(foundUser => {
+//     db.menu.create({
+//       name: req.body.menuName,
+//       appetizer: req.body.appetizerInfo,
+//       main: req.body.mainCourseInfo,
+//       side: req.body.sideDishInfo,
+//       dessert: req.body.dessertInfo
+//     }).then(newMenu => {
+//       foundUser.addMenu(newMenu)
+//       console.log(`You created a new menu called ${newMenu.name}`)
+//     }).then(relationInfo => {
+//       let chosenAppetizer = req.body.appetizerInfo
+//       let chosenMain = req.body.mainCourseInfo
+//       let chosenSide = req.body.sideDishInfo
+//       let chosenDessert = req.body.dessertInfo
+//       res.render('adulting101/menu', {appetizer: chosenAppetizer, main: chosenMain, side: chosenSide, dessert: chosenDessert})
+//     }).catch((error) => 
+//       console.log(error)
+//     )
+//   })
+// }))
 
 
 // router.get('/newMain', ((req, res) => {

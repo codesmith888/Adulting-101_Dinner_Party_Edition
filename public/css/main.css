@@ -4,9 +4,9 @@ body {
 
 .modal {
   display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
+  position: flex;
+  left: 20%;
+  top: 20%;
   width: 80%;
   height: 80%; 
   overflow: auto;

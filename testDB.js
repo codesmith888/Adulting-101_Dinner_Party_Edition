@@ -85,18 +85,7 @@ router.post('./menu', ((req, res) => {
     console.log(`You created a new menu called ${newMenu.name}`)
     let menuItems = JSON.stringify(newMenu)
     let menuData = JSON.parse(menuItems)
-
-  }).then(relationInfo => {
-    db.menu.findOne({
-      where: {
-        name: req.body.menuName
-      }
-    })
-    let chosenAppetizer = req.body.appetizerInfo
-    let chosenMain = req.body.mainCourseInfo
-    let chosenSide = req.body.sideDishInfo
-    let chosenDessert = req.body.dessertInfo
-    res.render('adulting101/menu', {appetizer: chosenAppetizer, main: chosenMain, side: chosenSide, dessert: chosenDessert})
+    res.render('adulting101/menu', {currentMenu: menuData})
   }).catch((error) => 
   console.log(error)
   )
