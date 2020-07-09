@@ -98,6 +98,34 @@ router.get('./profile', ((req, res) => {
   )
 }))
 
+router.get('/:id', ((req, res) => {
+  db.menu.findOne({
+    where: {
+      id: req.params.id, 
+    }
+  }).then((foundMenu) => {
+    let thisMenu = JSON.stringify(foundMenu);
+    let thisMenuData = JSON.parse(thisMenu)
+    let appetizer = thisMenuData.appetizer
+    let appetizerData = appetizer.split("|")
+    let main = thisMenuData.main
+    let mainCourseData = main.split("|")
+    let side = thisMenuData.side
+    let sideData = side.split("|")
+    let dessert = thisMenuData.dessert
+    let dessertData = dessert.split("|")
+    res.render('adulting101/details', {menu: thisMenuData, appetizer: appetizerData, main: mainCourseData, side: sideData, dessert: dessertData})
+  })
+}))
+
+router.delete('/:name', (req, res) => {
+  db.menu.findOne({
+    where: {
+      name: req.params.name
+    }
+  })
+})
+
 //--------------THIS ROUTE BELOW WORKS----------//
 // router.post('/menu', ((req, res) => {
 //   console.log(req.body)
