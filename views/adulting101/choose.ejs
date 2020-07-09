@@ -3,7 +3,7 @@
     <h2>Name Your Menu:</h2>
     <p>Name your custom menu below (think 'Summer Dinner' or 'Bridal Shower Brunch'), then select an appetizer, main course, side dish and dessert by clicking the circle next to the one you want to add. Finally, click "Add to Menu" to save your menu. Don't worry, you can always update your menu on the next page!</p>
     <label for="menuName">Menu Name:</label>
-    <input type="text" name="menuName"/>
+    <input type="text" name="menuName" placeholder="Menu Name" value="*"/>
   </div>
   <div id="appetizers">
     <h2>Choose Your Appetizer:</h2>
@@ -22,7 +22,7 @@
       <% }); %>
         <li>
           <h4>I do not want to choose an appetizer.</h4>
-          <input type="radio" name="appetizerInfo" value="THere is no appetizer on this menu.">
+          <input type="radio" name="appetizerInfo" value="There is no appetizer on this menu." checked>
         </li>
     </ul>
   </div>
@@ -43,7 +43,7 @@
       <% }) %>
       <li>
         <h4>I do not want to choose a main course.</h4>
-        <input type="radio" name="appetizerInfo" value="There is no main course on this menu.">
+        <input type="radio" name="mainCourseInfo" value="There is no main course on this menu." checked>
       </li>
     </ul>
   </div>
@@ -64,7 +64,7 @@
       <% }) %>
       <li>
         <h4>I do not want to choose a side dish.</h4>
-        <input type="radio" name="appetizerInfo" value="There is no side dish on this menu.">
+        <input type="radio" name="sideDishInfo" value="There is no side dish on this menu." checked>
       </li>
     </ul>
   </div>
@@ -85,7 +85,7 @@
       <% }) %>
       <li>
         <h4>I do not want to choose a dessert.</h4>
-        <input type="radio" name="appetizerInfo" value="There is no dessert on this menu.">
+        <input type="radio" name="dessertInfo" value="There is no dessert on this menu." checked>
       </li>
     </ul>
   </div>

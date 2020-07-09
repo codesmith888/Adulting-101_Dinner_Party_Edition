@@ -14,6 +14,12 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER
       },
+      url: {
+        type: Sequelize.STRING
+      },
+      thumbnail: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

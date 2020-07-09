@@ -4,23 +4,29 @@
     <p> <%= currentAppetizer[0] %> </p>
     <a href= "<%= currentAppetizer[1] %>">Click to view recipe.</a>
     <img src="<%= currentAppetizer[2] %>">
+    <form method="POST" action="/favorites">
+      <input type="submit" value="Save this recipe to your Favorites.">
+    </form>
 </div>
 <div id="chosenMainCourse">
   <h4>Main Course:</h4>
     <p><%= currentMain[0] %> </p>
     <a href= "<%= currentMain[1] %>">Click to view recipe.</a>
     <img src="<%= currentMain[2] %>">
+    <input type="submit" value="Save this recipe to your Favorites.">
 </div>
 <div id="chosenSide">
   <h4>Side Dish:</h4>
     <p><%= currentSide[0] %> </p>
     <a href="<%= currentSide[1] %>">Click to view recipe.</a>
     <img src="<%= currentSide[2] %>">
+    <input type="submit" value="Save this recipe to your Favorites.">
 </div>
 <div id="chosenDessert">
   <h4>Dessert:</h4>
     <p><%= currentDessert[0] %></p>
     <a href="<%= currentDessert[1] %>">Click to view recipe.</a>
     <img src="<%= currentDessert[2] %>">
+    <input type="submit" value="Save this recipe to your Favorites.">
 </div>
 

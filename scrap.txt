@@ -19,9 +19,11 @@ Favorite
 ------------
 id: integer
 name: string
+url: string
+thumbnail: string
 userId: fk integer
 
-sequelize model:create --name favorite --attributes name:string,userId:integer
+sequelize model:create --name favorite --attributes name:string,userId:integer,url:string,thumbnail:string
 
 Menu
 --------------

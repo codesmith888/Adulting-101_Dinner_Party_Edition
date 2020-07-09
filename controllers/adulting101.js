@@ -132,6 +132,10 @@ router.delete('/:id', (req, res) => {
   console.log(error)
 )});
 
+router.post('/favorites', ((req, res) => {
+  db.favorite.create()
+}))
+
 //--------------THIS ROUTE BELOW WORKS----------//
 // router.post('/menu', ((req, res) => {
 //   console.log(req.body)
