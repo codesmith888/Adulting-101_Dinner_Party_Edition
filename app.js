@@ -54,7 +54,17 @@ app.get('/', ((req, res) => {
 }))
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
+  db.menu.findAll({
+    where: {
+      userId: req.user.id,
+    }
+  }).then((menus) => {
+    let menuList = JSON.stringify(menus);
+    let menuData = JSON.parse(menuList)
+    res.render('profile', {allMenus: menuData})
+  }).catch((error) => 
+  console.log(error)
+  )
 })
 
 //include controllers

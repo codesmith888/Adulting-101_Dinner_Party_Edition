@@ -5,3 +5,11 @@
 <form method="POST" action="./adulting101/createMenu">
   <input type="Submit" value="Let's make a menu!">
 </form>
+
+<h1>
+  <ul>
+  <% allMenus.forEach((menu) => { %>
+    <li> <%= menu.name %> </li>
+ <% }) %>
+  </ul> 
+</h1>

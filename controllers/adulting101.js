@@ -84,6 +84,20 @@ router.post('/menu', ((req, res) => {
   })
 }))
 
+router.get('./profile', ((req, res) => {
+  db.menu.findAll({
+    where: {
+      userId: req.user.id,
+    }
+  }).then((menus) => {
+    let menuList = JSON.stringify(menus);
+    let menuData = JSON.parse(menuList)
+    res.render('./profile', {allMenus: menuData})
+  }).catch((error) => 
+  console.log(error)
+  )
+}))
+
 //--------------THIS ROUTE BELOW WORKS----------//
 // router.post('/menu', ((req, res) => {
 //   console.log(req.body)

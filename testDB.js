@@ -91,8 +91,9 @@ router.post('./menu', ((req, res) => {
   )
   })
 }))
+//--------------------------------------------//
 
-router.get('/menu', ((req, res) => {
+router.get('/profile', ((req, res) => {
   db.menu.findAll({
     where: {
       userId: req.user.id,
@@ -100,6 +101,6 @@ router.get('/menu', ((req, res) => {
   }).then((menus) => {
     let menuList = JSON.stringify(menus);
     let menuData = JSON.parse(menuList)
-    res
+    res.render('auth/profile', {allMenus: menuData})
   })
 }))
