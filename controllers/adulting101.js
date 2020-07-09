@@ -80,9 +80,9 @@ router.post('/menu', ((req, res) => {
     res.render('adulting101/menu', {currentAppetizer: appetizerData, currentMain: mainCourseData, currentSide: sideData, currentDessert: dessertData})
   }).catch((error) => 
   console.log(error)
-  )
-  })
-}))
+  )})
+}));
+
 
 router.get('./profile', ((req, res) => {
   db.menu.findAll({
@@ -107,29 +107,35 @@ router.get('/:id', ((req, res) => {
     let thisMenu = JSON.stringify(foundMenu);
     let thisMenuData = JSON.parse(thisMenu)
     let appetizer = thisMenuData.appetizer
-    let appetizerData = appetizer.split("|")
     let main = thisMenuData.main
-    let mainCourseData = main.split("|")
     let side = thisMenuData.side
-    let sideData = side.split("|")
     let dessert = thisMenuData.dessert
+    let appetizerData = appetizer.split("|")
+    let mainCourseData = main.split("|")
+    let sideData = side.split("|")
     let dessertData = dessert.split("|")
     res.render('adulting101/details', {menu: thisMenuData, appetizer: appetizerData, main: mainCourseData, side: sideData, dessert: dessertData})
-  })
+  }).catch((error) => 
+  console.log(error)
+  )
 }))
 
-router.delete('/:name', (req, res) => {
-  db.menu.findOne({
+router.delete('/:id', (req, res) => {
+  db.menu.destroy({
     where: {
-      name: req.params.name
+      id: req.params.id
     }
-  })
-})
+  }).then(deleted => {
+    console.log("See you later alligator. In a while crocodile.")
+    res.redirect('/profile')
+  }).catch((error) => 
+  console.log(error)
+)});
 
 //--------------THIS ROUTE BELOW WORKS----------//
 // router.post('/menu', ((req, res) => {
 //   console.log(req.body)
-//   db.user.findOne({
+//   db.user.findOne({ 
 //     where: {
 //       id: req.user.id
 //     }

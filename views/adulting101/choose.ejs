@@ -20,6 +20,10 @@
           <input type="radio" name="appetizerInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>
         </li>
       <% }); %>
+        <li>
+          <h4>I do not want to choose an appetizer.</h4>
+          <input type="radio" name="appetizerInfo" value="THere is no appetizer on this menu.">
+        </li>
     </ul>
   </div>
   <div id="mains">
@@ -37,6 +41,10 @@
           <input type="radio" name="mainCourseInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
         </li>  
       <% }) %>
+      <li>
+        <h4>I do not want to choose a main course.</h4>
+        <input type="radio" name="appetizerInfo" value="There is no main course on this menu.">
+      </li>
     </ul>
   </div>
   <div id="sides">
@@ -54,6 +62,10 @@
           <input type="radio" name="sideDishInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
         </li>  
       <% }) %>
+      <li>
+        <h4>I do not want to choose a side dish.</h4>
+        <input type="radio" name="appetizerInfo" value="There is no side dish on this menu.">
+      </li>
     </ul>
   </div>
   <div id="desserts">
@@ -71,6 +83,10 @@
           <input type="radio" name="dessertInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
         </li>  
       <% }) %>
+      <li>
+        <h4>I do not want to choose a dessert.</h4>
+        <input type="radio" name="appetizerInfo" value="There is no dessert on this menu.">
+      </li>
     </ul>
   </div>
   <input type="submit" name="submitName" value="Add Your Menu">

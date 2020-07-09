@@ -46,61 +46,70 @@ var router = express.Router();
   // )
   // })
 
-  router.post('./menu', ((req, res) => {
-    db.user.findOne({
-      where: {
-        id: 4
-      }
-    }).then(foundUser => {
-      db.menu.create({
-        name: "Hot Dog Feast",
-        appetizer: "Pigs in a Blanket",
-        main: "Chicago Dogs",
-        side: "Mac&Cheese with HotDogs & Peas",
-        dessert: "chocolate dogs"
-    }).then(newMenu => {
-      foundUser.addMenu(newMenu)
-      console.log(`You created a new menu called ${newMenu.name}`)
-    }).catch((error) => 
-    console.log(error)
-    )
-    })
-  }))
+//   router.post('./menu', ((req, res) => {
+//     db.user.findOne({
+//       where: {
+//         id: 4
+//       }
+//     }).then(foundUser => {
+//       db.menu.create({
+//         name: "Hot Dog Feast",
+//         appetizer: "Pigs in a Blanket",
+//         main: "Chicago Dogs",
+//         side: "Mac&Cheese with HotDogs & Peas",
+//         dessert: "chocolate dogs"
+//     }).then(newMenu => {
+//       foundUser.addMenu(newMenu)
+//       console.log(`You created a new menu called ${newMenu.name}`)
+//     }).catch((error) => 
+//     console.log(error)
+//     )
+//     })
+//   }))
 
-//-----------------_TEST ONE FAIL ----------------\\\\\\
-router.post('./menu', ((req, res) => {
-  db.user.findOne({
-    where: {
-      id: req.user.id
-    }
-  }).then(foundUser => {
-    db.menu.create({
-      name: req.body.menuName,
-      appetizer: req.body.appetizerInfo,
-      main: req.body.mainCourseInfo,
-      side: req.body.sideDishInfo,
-      dessert: req.body.dessertInfo
-  }).then(newMenu => {
-    foundUser.addMenu(newMenu)
-    console.log(`You created a new menu called ${newMenu.name}`)
-    let menuItems = JSON.stringify(newMenu)
-    let menuData = JSON.parse(menuItems)
-    res.render('adulting101/menu', {currentMenu: menuData})
-  }).catch((error) => 
-  console.log(error)
-  )
-  })
-}))
-//--------------------------------------------//
+// //-----------------_TEST ONE FAIL ----------------\\\\\\
+// router.post('./menu', ((req, res) => {
+//   db.user.findOne({
+//     where: {
+//       id: req.user.id
+//     }
+//   }).then(foundUser => {
+//     db.menu.create({
+//       name: req.body.menuName,
+//       appetizer: req.body.appetizerInfo,
+//       main: req.body.mainCourseInfo,
+//       side: req.body.sideDishInfo,
+//       dessert: req.body.dessertInfo
+//   }).then(newMenu => {
+//     foundUser.addMenu(newMenu)
+//     console.log(`You created a new menu called ${newMenu.name}`)
+//     let menuItems = JSON.stringify(newMenu)
+//     let menuData = JSON.parse(menuItems)
+//     res.render('adulting101/menu', {currentMenu: menuData})
+//   }).catch((error) => 
+//   console.log(error)
+//   )
+//   })
+// }))
+// //--------------------------------------------//
 
-router.get('/profile', ((req, res) => {
-  db.menu.findAll({
-    where: {
-      userId: req.user.id,
-    }
-  }).then((menus) => {
-    let menuList = JSON.stringify(menus);
-    let menuData = JSON.parse(menuList)
-    res.render('auth/profile', {allMenus: menuData})
-  })
-}))
+// router.get('/profile', ((req, res) => {
+//   db.menu.findAll({
+//     where: {
+//       userId: req.user.id,
+//     }
+//   }).then((menus) => {
+//     let menuList = JSON.stringify(menus);
+//     let menuData = JSON.parse(menuList)
+//     res.render('auth/profile', {allMenus: menuData})
+//   })
+// }))
+
+
+//-------------------------------------
+
+// db.menu.destroy({
+//   where: {
+//     id: 89
+//   }
+// )}.catch(error)
