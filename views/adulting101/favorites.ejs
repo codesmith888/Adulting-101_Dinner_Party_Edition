@@ -1,1 +1,8 @@
-<p> YOU MADE IT</p>
+<h1>Favorite Recipes:</h1>
+  <ul>
+    <% allFavorites.forEach((favorite) => { %>
+      <li>
+        <a href="adulting101/<%= favorite.id %>"><%= favorite.name %></a>
+      </li>
+    <% }) %>
+  </ul>

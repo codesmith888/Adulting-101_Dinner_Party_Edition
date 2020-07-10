@@ -1,0 +1,8 @@
+<h1>Saved Menus:</h1>
+  <ul>
+  <% allMenus.forEach((menu) => { %>
+    <li>
+      <a href="./<%= menu.id %>"><%= menu.name %></a>
+    </li>
+ <% }) %>
+  </ul> 

@@ -113,3 +113,39 @@ var router = express.Router();
 //     id: 89
 //   }
 // )}.catch(error)
+
+///------------------------------------------//
+//   db.user.findOne({
+//     where: {
+//       id: 4
+//     }
+//   }).then(foundUser => {
+//     db.favorite.create({
+//         name: "recipeName",
+//         url: "recipeURL",
+//         thumbnail: "recipeImage"
+//   }).then(favoriteRecipe => {
+//     foundUser.addFavorite(favoriteRecipe)
+//     console.log(`You added ${favoriteRecipe.name} to your Favorites list.`)
+//   }).catch((error) => 
+//   console.log(error)
+//   )
+// })
+
+db.menu.update({
+  name: "Get In My Belly"
+}, {
+  where: {
+    id: 24
+  }
+})
+  
+
+  //     }).then(newMenu => {
+  //       foundUser.addMenu(newMenu)
+  //       console.log(`You created a new menu called ${newMenu.name}`)
+  //     }).catch((error) => 
+  //     console.log(error)
+  //     )
+  //     })
+  //   }))

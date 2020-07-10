@@ -9,19 +9,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING, 
-        allowNull: false
+        type: Sequelize.STRING
       },
       userId: {
         type: Sequelize.INTEGER
       },
       url: {
-        type: Sequelize.STRING, 
-        allowNull: false
+        type: Sequelize.STRING
       },
       thumbnail: {
-        type: Sequelize.STRING, 
-        allowNull: false
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

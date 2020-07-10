@@ -9,27 +9,22 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       userId: {
         type: Sequelize.INTEGER
       },
       appetizer: {
-        type: Sequelize.TEXT,
-        allowNull: false
+        type: Sequelize.TEXT
       },
       main: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       side: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       dessert: {
-        type: Sequelize.STRING, 
-        allowNull: false
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
