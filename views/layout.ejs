@@ -3,18 +3,24 @@
   <head>
     <title>Adulting 101: Dinner Party Edition</title>
     <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body>
     <header>
       <nav>
+        <div id = "navbar">
         <% if (currentUser) { %>
-          <a href='/auth/logout'>Logout</a>
-          <a href='/profile'>Profile</a>
+          <a id="profile" href='/profile'>Profile</a>
+          <a id="newMenu" href='/adulting101/new'>Make a New Menu</a>
+          <a id="allMenus" href='/adulting101/allmenus'>View Your Saved Menus</a>
+          <a id="favorites" href='/adulting101/favorites'>View Your Favorite Recipes!</a>
+          <a id="logout" href='/auth/logout'>Logout</a>
         <% } else { %>
           <a href='/auth/register'>Register</a>
           <a href='/auth/login'>Login</a>
-          <a href='/adulting101/new'>Make a New Menu</a>
         <% } %>
+      </div>
       </nav>
     </header>
     <div class="container">

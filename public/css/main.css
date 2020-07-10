@@ -1,5 +1,7 @@
 body {
-  background-color: pink;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
 }
 
 .modal {
@@ -33,4 +35,150 @@ body {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+#navbar {
+  color: lightgrey;
+  grid-area: header;
+}
+
+#profile {
+  background-image: url("/images/profileBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-content: space-between;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  padding: 10px;
+  grid-gap: 10px;
+  grid-template-areas:
+  'header header header header header header'
+  '. . . title title title'
+  '. . . details details details'
+  '. . .  details2 details2 details2'
+  '. . . directions directions directions'
+  '. . . newMenu all_menus favoriteRecipes'
+  '. . footer footer footer footer'
+}
+
+.row {
+  text-align: center;
+  justify-content: space-around;
+  align-content: space-between;
+  font-family: 'Muli', sans-serif;
+  color: white;
+}
+#header {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+#title {
+  grid-column-start: 4;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#details {
+  grid-column-start: 4;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+#details2 {
+  grid-column-start: 4;
+  grid-column-end: 7;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+#newMenu {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 5;
+  grid-row-end: 7;
+}
+
+#all_menus {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 5;
+  grid-row-end: 7;
+}
+
+#favoriteRecipes {
+  grid-column-start: 6;
+  grid-column-end: 7;
+  grid-row-start: 5;
+  grid-row-end: 7;
+}
+
+#footer {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
+
+#choose {
+  background-image: url("/images/chooseBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  align-content: space-between;
+  background-color: yellow;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+}
+
+#createNewMenu {
+  background-image: url("/images/createNewMenuBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+#favorites {
+  background-image: url("/images/favoritesAndAllMenusBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+#allMenus {
+  background-image: url("/images/favoritesAndAllMenusBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+#menu {
+  background-image: url("/images/menuAndRecipeDetailsBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+#recipeDetails {
+  background-image: url("/images/menuAndRecipeDetailsBackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-content: space-between;
+  height: 100%;
+  width: 100%;
 }

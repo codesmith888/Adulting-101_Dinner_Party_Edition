@@ -1,8 +1,22 @@
-<h2>Hi <%= currentUser.name %>. Welcome to Adulting101: Dinner Party Edition!</h2>
-
-<h4>Have a dinner party and don’t know what to cook? WELCOME TO ADULTING! You don’t have time to go to the store because adulting is HARD, so type in a few ingredients you already have in the kitchen and we will provide you with a full menu (appetizers, mains, sides & dessert!). </h4>
-<p>To get started, simply name your custom menu below (think 'Summer Dinner' or 'Bridal Shower Brunch') and click "Let's make a menu!" to begin choosing items for your menu.</p>
-<a href="/adulting101/createNewMenu">Make a New Menu!</a>
-
-<a href="/adulting101/allmenus">Click to View Your Menus</a>
-<a href="/adulting101/favorites">Click to See Your Favorite Recipes</a>
+<div class="grid-container" id="profile">
+  <div class="row">
+    <h1 id="title">Welcome to Adulting101: Dinner Party Edition <%= currentUser.name %></h1>
+  </div>
+  <div class="row">
+    <h4 id="details">Having a dinner party and don’t know what to cook? WELCOME TO ADULTING! </h4>
+  </div>
+  <div class="row">
+    <p id="details2">We will provide you with a full menu (appetizers, mains, sides & dessert!). Search for recipes with ingredients you have at home, or let us design a menu for you.</p>
+  </div>
+  <div class="row">
+    <h3 directions>Click "Make a New Menu" below to begin choosing items for your menu.</h3>
+  </div>
+  <div class="row">
+    <a id="createNewMenu" href="/adulting101/createNewMenu">Make a New Menu</a>
+    <a id="all_menus" href="/adulting101/allmenus">View Saved Menus</a>
+    <a id="favorites" href="/adulting101/favorites">View Favorite Recipes</a>
+  </div>
+  <footer class = "row">
+    <a id="footer" href='https://www.freepik.com/free-photos-vectors/background'>Background photo created by pvproductions - www.freepik.com</a>
+  </footer>
+</div>

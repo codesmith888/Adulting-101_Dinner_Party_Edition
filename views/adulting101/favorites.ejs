@@ -1,8 +1,13 @@
-<h1>Favorite Recipes:</h1>
-  <ul>
-    <% allFavorites.forEach((favorite) => { %>
-      <li>
-        <a href="adulting101/<%= favorite.id %>"><%= favorite.name %></a>
-      </li>
-    <% }) %>
-  </ul>
+<div id="favorites">
+  <h1>Favorite Recipes:</h1>
+    <ul>
+      <% allFavorites.forEach((favorite) => { %>
+        <li>
+          <a href="adulting101/favorites/<%= favorite.id %>"><%= favorite.name %></a>
+        </li>
+      <% }) %>
+    </ul>
+  <footer>
+    <a href='https://www.freepik.com/free-photos-vectors/new-year'>New year photo created by freepik - www.freepik.com</a>
+  </footer>
+</div>

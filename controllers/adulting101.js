@@ -4,6 +4,10 @@ var router = express.Router();
 const axios = require('axios');
 let createNewMenu =
 
+router.get('/createNewMenu', ((req, res) => {
+  res.render('adulting101/createNewMenu')
+}))
+
 router.post('/createNewMenu', ((req, res) => {
   let appetizerUrl = `http://www.recipepuppy.com/api/?q=appetizer&i=${req.body.app_ingredients}`
   axios.get(appetizerUrl).then((apiResponse) => {
@@ -169,6 +173,23 @@ router.put('/:id', ((req, res) => {
   }).catch((error) => {
     console.log(error)
   })
+}))
+
+router.get('favorites/:id', ((req, res) => {
+  db.favorite.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then((foundFavorite) => {
+    let thisRecipe = JSON.stringify(foundFavorite)
+    let recipeData = JSON.parse(thisRecipe)
+    let name = recipeData.name
+    let url = recipeData.url
+    let image = recipeData.thumbnail
+    res.render('adulting101/recipeDetails')
+  }).catch((error) => 
+    console.log(error)
+  )
 }))
 
 module.exports = router;

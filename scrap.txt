@@ -131,3 +131,11 @@ MENU PAGE:
     </form> 
   </div>
   
+  -----------------------------------------<%- include('./profile') %>
+      <%- include('./adulting101/menu') %>
+      <%- include('./adulting101/allmenus') %>
+      <%- include('./adulting101/choose') %>
+      <%- include('./adulting101/createNewMenu') %>
+      <%- include('./adulting101/favorites') %>
+      <%- include('./adulting101/menuDetails') %>
+      <%- include('./adulting101/recipeDetails') %>
