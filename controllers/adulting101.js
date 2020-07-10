@@ -133,8 +133,33 @@ router.delete('/:id', (req, res) => {
 )});
 
 router.post('/favorites', ((req, res) => {
-  db.favorite.create()
-}))
+  let recipeData = req.body.favoriteInfo;
+  let recipeDataSplit = recipeData.split("|");
+  let recipeName = recipeDataSplit[0];
+  let recipeURL = recipeDataSplit[1];
+  let recipeImage = recipeDataSplit[2];
+  db.user.findOne({
+    where: {
+      id: req.user.id
+    }
+  }).then(foundUser => {
+    db.favorite.create({
+      where: {
+        name: recipeName,
+        url: recipeURL,
+        thumbnail: recipeImage
+      }
+    }).then(favoriteRecipe => {
+      res.redirect('/menu')
+    }).catch((error) => 
+    console.log(error)
+    )
+  })
+  })
+)
+
+
+
 
 //--------------THIS ROUTE BELOW WORKS----------//
 // router.post('/menu', ((req, res) => {

@@ -1,12 +1,12 @@
 <h1>Welcome to Your Menu</h1>
+<form method="POST" action="favorites">
 <div id="chosenAppetizer">
   <h4>Appetizer:</h4>
     <p> <%= currentAppetizer[0] %> </p>
     <a href= "<%= currentAppetizer[1] %>">Click to view recipe.</a>
     <img src="<%= currentAppetizer[2] %>">
-    <form method="POST" action="/favorites">
-      <input type="submit" value="Save this recipe to your Favorites.">
-    </form>
+    <input type="hidden" name="favoriteInfo" value="<%= currentAppetizer[0] %> | <%= currentAppetizer[1] %> | <%= currentAppetizer[2] %>">
+    <input type="submit" value="Save this recipe to your Favorites.">
 </div>
 <div id="chosenMainCourse">
   <h4>Main Course:</h4>
@@ -29,4 +29,4 @@
     <img src="<%= currentDessert[2] %>">
     <input type="submit" value="Save this recipe to your Favorites.">
 </div>
-
+</form>
