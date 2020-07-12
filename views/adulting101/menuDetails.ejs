@@ -1,56 +1,123 @@
-<div id="menuDetails">
-  <h1>Welcome to Your <%= menu.name %> Menu</h1>
-  <div id="Appetizer">
-    <h2>Appetizer:</h2>
-      <h3> <%= appetizer[0] %> </h3>
-      <a href= "<%= appetizer[1] %>">Click to view recipe.</a>
-      <img src="<%= appetizer[2] %>">
-      <form method="POST" action="favorites">
-        <input type="hidden" name="favoriteInfo" value="<%= appetizer[0] %> | <%= appetizer[1] %> | <%= appetizer[2] %>">
-        <input type="submit" value="Save to Favorites">
-      </form>
+<h1 class="menuDisplayTitle">Check Out Your <%= menu.name %> Menu!</h1>
+<div class="row" id="Appetizer">
+  <h2 class="courseTitle">Appetizer:</h2>
+</div>
+<div class="row">
+    <h3 class="itemTitle"> <%= appetizer[0] %> </h3>
+</div>
+<div class="row">
+    <img class="foodPicture" src="<%= appetizer[2] %>">
+</div>
+<div class="row">
+  <div class="col-6">
+    <button class="modalButton modalButtonEvent">View Recipe</button>
+    <div class="modalWindow">
+      <div class="modalContent">
+        <span class="closeModal">&times;</span>
+        <iframe data-target="<%= appetizer[1] %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
       </div>
-  <div id="MainCourse">
-    <h2>Main Course:</h2>
-      <h4><%= main[0] %> </h4>
-      <a href= "<%= main[1] %>">Click to view recipe.</a>
-      <img src="<%= main[2] %>">
-      <form method="POST" action="favorites">
-        <input type="hidden" name="favoriteInfo" value="<%= main[0] %> | <%= main[1] %> | <%= main[2] %>">
-        <input type="submit" value="Save to Favorites">
-      </form>
+    </div>
   </div>
-  <div id="Side">
-    <h2>Side Dish:</h2>
-      <h4><%= side[0] %> </h4>
-      <a href="<%= side[1] %>">Click to view recipe.</a>
-      <img src="<%= side[2] %>">
-      <form method="POST" action="favorites">
-        <input type="hidden" name="favoriteInfo" value="<%= side[0] %> | <%= side[1] %> | <%= side[2] %>">
-        <input type="submit" value="Save to Favorites">
-      </form>
-  </div>
-  <div id="Dessert">
-    <h2>Dessert:</h2>
-      <h4><%= dessert[0] %></h4>
-      <a href="<%= dessert[1] %>">Click to view recipe.</a>
-      <img src="<%= dessert[2] %>">
-      <form method="POST" action="favorites">
-        <input type="hidden" name="favoriteInfo" value="<%= dessert[0] %> | <%= dessert[1] %> | <%= dessert[2] %>">
-        <input type="submit" value="Save to Favorites">
-      </form>
-  </div>
-  <div class="deleteAndEdit">
-    <form method="POST" action="/adulting101/<%= menu.id %>/?_method=DELETE">
-      <input type="submit" value="Delete This Menu">
+  <div class="col-6">
+    <form method="POST" action="favorites">
+      <input type="hidden" name="favoriteInfo" value="<%= appetizer[0] %> | <%= appetizer[1] %> | <%= appetizer[2] %>">
+      <input type="submit" value="Save to Favorites" class="modalButton">
     </form>
-    <form method="POST" action="/adulting101/<%= menu.id %>/?_method=PUT">
+  </div>
+</div>
+<div class="row" id="mainCourse">
+  <h2 class="courseTitle">Main Course:</h2>
+</div>
+<div class="row">
+  <h4 class="itemTitle"><%= main[0] %> </h4>
+</div>
+<div class="row">
+  <img class="foodPicture" src="<%= main[2] %>">
+</div>
+<div class="row">
+  <div class="col">
+    <button class="modalButton modalButtonEvent">View Recipe</button>
+    <div class="modalWindow">
+      <div class="modalContent">
+        <span class="closeModal">&times;</span>
+        <iframe data-target="<%= main[1] %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <form method="POST" action="favorites">
+      <input type="hidden" name="favoriteInfo" value="<%= main[0] %> | <%= main[1] %> | <%= main[2] %>">
+      <input type="submit" value="Save to Favorites" class="modalButton">
+    </form>
+  </div>
+</div>
+<div class="row" id="side">
+  <h2 class="courseTitle">Side Dish:</h2>
+</div>
+<div class="row">
+  <h4 class="itemTitle"><%= side[0] %> </h4>
+</div>
+<div class="row">
+  <img class="foodPicture" src="<%= side[2] %>">
+</div>
+<div class="row">
+  <div class="col">
+    <button class="modalButton modalButtonEvent">View Recipe</button>
+    <div class="modalWindow">
+      <div class="modalContent">
+        <span class="closeModal">&times;</span>
+          <iframe data-target="<%= side[1] %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+        </div>
+      </div>
+  </div>
+  <div class="col">
+    <form method="POST" action="favorites">
+      <input type="hidden" name="favoriteInfo" value="<%= side[0] %> | <%= side[1] %> | <%= side[2] %>">
+      <input type="submit" value="Save to Favorites" class="modalButton">
+    </form>
+  </div>
+</div>
+<div class="row" id="dessert">
+  <h2 class="courseTitle">Dessert:</h2>
+</div>
+<div class="row">
+  <h4 class="itemTitle"><%= dessert[0] %></h4>
+</div>
+<div class="row">
+  <img class="foodPicture" src="<%= dessert[2] %>">
+</div>
+<div class="row">
+  <div class="col">
+    <button class="modalButton modalButtonEvent">View Recipe</button>
+    <div class="modalWindow">
+      <div class="modalContent">
+        <span class="closeModal">&times;</span>
+        <iframe data-target="<%= dessert[1] %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <form method="POST" action="favorites">
+      <input type="hidden" name="favoriteInfo" value="<%= dessert[0] %> | <%= dessert[1] %> | <%= dessert[2] %>">
+      <input type="submit" value="Save to Favorites" class=modalButton>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <form method="POST" action="/adulting101/<%= menu.id %>/?_method=DELETE">
+      <input type="submit" value="Delete This Menu" class="otherButton">
+    </form>
+  </div>
+  <div class="col">
+    <form id="nameChange" method="POST" action="/adulting101/<%= menu.id %>/?_method=PUT">
       <label for="menuName">New Menu Name</label>
       <input type="text" name="name" value="<%= menu.name %>">
-      <input type="submit" value="Edit Menu Name">
+      <input type="submit" value="Edit Menu Name" class="otherButton">
     </form>
   </div>
-  <footer>
-  <a href='https://www.freepik.com/free-photos-vectors/food'>Food photo created by valeria_aksakova - www.freepik.com</a>
-  </footer>
 </div>
+<footer>
+  <a href="https://www.freepik.com/free-photos-vectors/background">Background photo created by tirachard - www.freepik.com</a>
+</footer>

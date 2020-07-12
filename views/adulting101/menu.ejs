@@ -1,46 +1,108 @@
-<div id="menu">
-  <h1>Congratulations! Here is your new menu:</h1>
-  <div id="chosenAppetizer">
-    <h4>Appetizer:</h4>
-      <p> <%= currentAppetizer[0] %> </p>
-      <a href= "<%= currentAppetizer[1] %>">Click to view recipe.</a>
-      <img src="<%= currentAppetizer[2] %>">
-      <form method="POST" action="favorites">
-        <input type="hidden" name="favoriteInfo" value="<%= currentAppetizer[0] %> | <%= currentAppetizer[1] %> | <%= currentAppetizer[2] %>">
-        <input type="submit" value="Save to Favorites">
-      </form>
-  </div>
-  <div id="chosenMainCourse">
-    <h4>Main Course:</h4>
-      <p><%= currentMain[0] %> </p>
-      <a href= "<%= currentMain[1] %>">Click to view recipe.</a>
-      <img src="<%= currentMain[2] %>">
-      <form method="POST" action="favorites">
-        <input type="hidden" name="favoriteInfo" value="<%= currentMain[0] %> | <%= currentMain[1] %> | <%= currentMain[2] %>">
-        <input type="submit" value="Save to Favorites">
-      </form>
-  </div>
-  <div id="chosenSide">
-    <h4>Side Dish:</h4>
-      <p><%= currentSide[0] %> </p>
-      <a href="<%= currentSide[1] %>">Click to view recipe.</a>
-      <img src="<%= currentSide[2] %>">
-      <form method="POST" action="favorites">
-        <input type="hidden" name="favoriteInfo" value="<%= currentSide[0] %> | <%= currentSide[1] %> | <%= currentSide[2] %>">
-        <input type="submit" value="Save to Favorites">
-      </form>
-  </div>
-  <div id="chosenDessert">
-    <h4>Dessert:</h4>
-      <p><%= currentDessert[0] %></p>
-      <a href="<%= currentDessert[1] %>">Click to view recipe.</a>
-      <img src="<%= currentDessert[2] %>">
-      <form method="POST" action="favorites">
-        <input type="hidden" name="favoriteInfo" value="<%= currentDessert[0] %> | <%= currentDessert[1] %> | <%= currentDessert[2] %>">
-        <input type="submit" value="Save to Favorites">
-      </form>
-  </div>
-  <footer>
-    <a href='https://www.freepik.com/free-photos-vectors/food'>Food photo created by valeria_aksakova - www.freepik.com</a>
-  </footer>
+<h1 class="menuDisplayTitle">Congratulations! Here is your new menu:</h1>
+<div class="row" id="chosenAppetizer">
+  <h4 class="courseTitle">Appetizer:</h4>
 </div>
+<div class="row">
+  <p class="itemTitle"> <%= currentAppetizer[0] %> </p>
+</div>
+<div class="row">
+  <img class="foodPicture" src="<%= currentAppetizer[2] %>">
+<div class="row">
+  <div class="col">
+    <button class="modalButton modalButtonEvent">View Recipe</button>
+    <div class="modalWindow">
+      <div class="modalContent">
+        <span class="closeModal">&times;</span>
+        <iframe data-target="<%= currentAppetizer[1] %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <form method="POST" action="favorites">
+      <input type="hidden" name="favoriteInfo" value="<%= currentAppetizer[0] %> | <%= currentAppetizer[1] %> | <%= currentAppetizer[2] %>">
+      <input type="submit" value="Save to Favorites">
+    </form>
+  </div>
+</div>
+<div class="row" id="chosenMainCourse">
+  <h4 class="courseTitle">Main Course:</h4>
+</div>
+<div class="row">
+  <p class="itemTitle"><%= currentMain[0] %> </p>
+</div>
+<div class="row">
+  <img class="foodPicture" src="<%= currentMain[2] %>">
+</div>
+<div class="row">
+  <div class="col">
+    <button class="modalButton modalButtonEvent">View Recipe</button>
+    <div class="modalWindow">
+      <div class="modalContent">
+        <span class="closeModal">&times;</span>
+        <iframe data-target="<%= currentMain[1] %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <form method="POST" action="favorites">
+      <input type="hidden" name="favoriteInfo" value="<%= currentMain[0] %> | <%= currentMain[1] %> | <%= currentMain[2] %>">
+      <input type="submit" value="Save to Favorites">
+    </form>
+  </div>
+</div>
+<div class="row" id="chosenSide">
+  <h4 class="courseTitle">Side Dish:</h4>
+</div>
+<div class="row">
+  <p class="itemTitle"><%= currentSide[0] %> </p>
+</div>
+<div class="row">
+  <img class="foodPicture" src="<%= currentSide[2] %>">
+</div>
+<div class="row">
+  <div class="col">
+    <button class="modalButton modalButtonEvent">View Recipe</button>
+    <div class="modalWindow">
+      <div class="modalContent">
+        <span class="closeModal">&times;</span>
+        <iframe data-target="<%= currentSide[1] %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <form method="POST" action="favorites">
+      <input type="hidden" name="favoriteInfo" value="<%= currentSide[0] %> | <%= currentSide[1] %> | <%= currentSide[2] %>">
+      <input type="submit" value="Save to Favorites">
+    </form>
+  </div>
+</div>
+<div class="row" id="chosenDessert">
+  <h4 class="courseTitle">Dessert:</h4>
+</div>
+<div class="row">
+  <p class="itemTitle"><%= currentDessert[0] %></p>
+</div>
+<div class="row">
+  <img class="foodPicture" src="<%= currentDessert[2] %>">
+</div>
+<div class="row">
+  <div class="col">
+    <button class="modalButton modalButtonEvent">View Recipe</button>
+    <div class="modalWindow">
+      <div class="modalContent">
+        <span class="closeModal">&times;</span>
+        <iframe data-target="<%= currentDessert[1] %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <form method="POST" action="favorites">
+      <input type="hidden" name="favoriteInfo" value="<%= currentDessert[0] %> | <%= currentDessert[1] %> | <%= currentDessert[2] %>">
+      <input type="submit" value="Save to Favorites">
+    </form>
+  </div>
+</div>
+<footer>
+  <a href="https://www.freepik.com/free-photos-vectors/background">Background photo created by tirachard - www.freepik.com</a>
+</footer>
+

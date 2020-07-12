@@ -1,33 +1,38 @@
-<div id="createNewMenu">
   <div class="row">
-    <h3>Let's Get Started Making Your Customized Menu!</h3>
+    <h3 id="newMenuTitle">Get Started Making Your Customized Menu!</h3>
     </div>
     <div class="row">
-    <p>You will have the option to select from menu options for appetizers, main dishes, sides and desserts. If you have food or ingredients at home that you would like to be included in these dishes, please list them here.</p>
+    <p id="newMenuDirections">To begin, list ingredients you would like to include. List multiple ingredients with a comma between (ex: garlic,salt). If you don't want to choose, simply click "Let's Start Cooking" to begin.</p>
     </div>
-    <form method="POST" action="./createNewMenu">
+    <form id="newMenuForm" method="POST" action="./createNewMenu">
       <div class="row">
-        <label for="app_ingredients">Appetizer Ingredient Preferences:</label>
+        <label class="formLabel" for="app_ingredients">Appetizer Ingredients:  </label>
+      </div>
+      <div class = "row">
         <input type="text" name="app_ingredients">
       </div>  
       <div class="row">
-        <label for="main_ingredients">Main Dish Ingredient Preferences:</label>
+        <label class="formLabel" for="main_ingredients">Main Dish Ingredients:  </label>
+      </div>
+      <div class= "row">  
         <input type="text" name="main_ingredients">
       </div>
       <div class="row">
-        <label for="side_ingredients">Side Dish Ingredient Preferences:</label>
+        <label class="formLabel" for="side_ingredients">Side Dish Ingredients:  </label>
+      </div>
+      <div class="row">
         <input type="text" name="side_ingredients">
       </div>
       <div class="row">
-        <label for="dessert_ingredients">Dessert Ingredient Preferences:</label>
+        <label class="formLabel" for="dessert_ingredients">Dessert Ingredients:  </label>
+      </div>
+      <div class="row">
         <input type="text" name="dessert_ingredients">
       </div>
       <div class="row">
-        <button type="submit">Let's Start Cooking</button>
-        <button type="submit">Click here to search without ingredient preferences.</button>
+        <button class= "formButton" type="submit">Let's Start Cooking</button>
       </div>  
-      </form>
+    </form>
   <footer class="row">
-    <a href="https://www.freepik.com/free-photos-vectors/food">Food photo created by Racool_studio - www.freepik.com</a>
+    <a class="footer" href="https://www.freepik.com/free-photos-vectors/background">Background photo created by freepik - www.freepik.com</a>
   </footer>
-</div>

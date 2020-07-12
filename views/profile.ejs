@@ -1,23 +1,37 @@
-<div class="container" id="profile">
-  <div class="row">
-    <div class="col-"
-    <h1 id="title">Welcome to Adulting101: Dinner Party Edition <%= currentUser.name %></h1>
+<div class="row align-items-end">
+  <div class="col">
+    <h1 class="title">Adulting101: Dinner Party Edition</h1>
   </div>
-  <div class="row">
-    <h4 id="details">Having a dinner party and don’t know what to cook? WELCOME TO ADULTING! </h4>
+</div>
+<div class="row">
+  <div class="col">
+    <h4 id="welcome">Welcome <%= currentUser.name %>. </h4>
   </div>
-  <div class="row">
+</div>
+<div class="row">
+    <div class="col">
+      <h4 id="moreDetails">Having a dinner party and don't know what to cook?</h4>
+    </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h4 id="evenMoreDetails">WELCOME TO ADULTING.</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
     <p id="details2">We will provide you with a full menu (appetizers, mains, sides & dessert!). Search for recipes with ingredients you have at home, or let us design a menu for you.</p>
   </div>
-  <div class="row">
-    <h3 directions>Click "Make a New Menu" below to begin choosing items for your menu.</h3>
-  </div>
-  <div class="row">
-    <a id="createNewMenu" href="/adulting101/createNewMenu">Make a New Menu</a>
-    <a id="all_menus" href="/adulting101/allmenus">View Saved Menus</a>
-    <a id="favorites" href="/adulting101/favorites">View Favorite Recipes</a>
-  </div>
-  <footer class = "row">
-    <a id="footer" href='https://www.freepik.com/free-photos-vectors/background'>Background photo created by pvproductions - www.freepik.com</a>
-  </footer>
 </div>
+<div class="row">
+  <div class="col">
+    <h3 id="directions">Click "Make New Menu" below to begin choosing items for your menu.</h3>
+  </div>  
+</div>
+<div class="col-2">
+  <a id=newMenuButton href="/adulting101/createNewMenu">Make New Menu</a>
+</div>
+<footer class = "row">
+  <a class="footer" href='https://www.freepik.com/free-photos-vectors/background'>Background photo created by pvproductions - www.freepik.com</a>
+</footer>
+  
