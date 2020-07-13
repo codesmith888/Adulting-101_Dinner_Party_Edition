@@ -269,18 +269,10 @@ router.delete('/favorites/:id', (req, res) => {
     }
   }).then(deleted => {
     console.log("See you later alligator. In a while crocodile.")
-    db.favorite.findAll({
-      where: {
-        userId: req.user.id,
-      }
-    }).then((favorites) => {
-      let favoriteList = JSON.stringify(favorites);
-      let favoriteData = JSON.parse(favoriteList)
-      res.redirect('adulting101/favorites', {allFavorites: favoriteData, bodyId: "favorites"})
+    res.render('adulting101/createNewMenu', {bodyId: "createNewMenu"})
     }).catch((error) => {
       console.log(error)
     })
-  })
   });
 
 module.exports = router;

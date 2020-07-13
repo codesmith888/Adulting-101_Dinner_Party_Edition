@@ -1,9 +1,7 @@
 let modalButtons = document.getElementsByClassName("modalButtonEvent");
 let closeModalButtons = document.getElementsByClassName("closeModal");
 let appetizerIFrame = document.getElementById("appURL");
-// let newMenuButton = document.getElementById("newMenuButton");
-// let allMenusButton = document.getElementById("allMenusButton");
-// let favoritesButton = document.getElementById("favoritesButton");
+
 
 for(let i=0; i<modalButtons.length; i++) {
   modalButtons[i].addEventListener("click", function(e) {
@@ -23,10 +21,4 @@ for(let i=0; i<closeModalButtons.length; i++) {
     currentModal.style.display = "none"
   })
 }
-
-// newMenuButton.addEventListener("click", openNewMenu)
-
-// openNewMenu(() => {
-
-// }
 

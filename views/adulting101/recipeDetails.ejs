@@ -3,7 +3,9 @@
   <img id="savedRecipeFoodPic" src="<%= image %>">
 </div>
 <div class="row" id="iFrame">
-<iframe src="<%= url %>" name="recipeIFrame" title="Recipe Opened in New Webpage" height="400px" width="600px"></iframe> 
+  <a href="https://www.google.com" target="recipeIframe">Recipe Link</a>
+  <iframe src="<%= url %>" name="recipeIFrame" title="Recipe Opened in New Webpage" height="400px" width="600px"></iframe> 
+</div>
 <div class="row" id="makeChangesButtons">
   <div class="col-4">
     <form method="POST" action="/adulting101/favorites/<%= id %>/?_method=DELETE">
