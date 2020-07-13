@@ -139,7 +139,7 @@ router.delete('/:id', (req, res) => {
     }
   }).then(deleted => {
     console.log("See you later alligator. In a while crocodile.")
-    res.render('adulting101/createNewMenu', {bodyId: "createNewMenu"})
+    res.render('./profile', {bodyId: "profile"})
     }).catch((error) => {
       console.log(error)
     })
@@ -269,7 +269,7 @@ router.delete('/favorites/:id', (req, res) => {
     }
   }).then(deleted => {
     console.log("See you later alligator. In a while crocodile.")
-    res.render('adulting101/createNewMenu', {bodyId: "createNewMenu"})
+    res.render('./profile', {bodyId: "profile"})
     }).catch((error) => {
       console.log(error)
     })
