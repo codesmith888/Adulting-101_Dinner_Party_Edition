@@ -3,7 +3,13 @@
   <img id="savedRecipeFoodPic" src="<%= image %>">
 </div>
 <div class="row" id="iFrame">
-  <iframe src="<%= url %>" name="recipeIFrame" title="Recipe Opened in New Webpage" height="400px" width="600px"></iframe> 
+  <button class="modalButton modalButtonEvent">View Recipe</button>
+  <div class="modalWindow">
+    <div class="modalContent">
+      <span class="closeModal">&times;</span>
+      <iframe data-target="<%= url %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+    </div>
+  </div>
 </div>
 <div class="row" id="makeChangesButtons">
   <div class="col-4">

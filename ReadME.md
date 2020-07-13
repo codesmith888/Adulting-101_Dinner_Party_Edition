@@ -9,7 +9,7 @@
 
 ## The WireFrames
 <ul>
-  <img src="adulting101/public/images/firstWireframe.jpg>
+  <img src="adulting101/public/images/firstWireframe.jpg">
 </ul>
 
 ## Approach Taken
@@ -39,6 +39,7 @@
   <li>Be deployed online. **COMPLETED**</li>
   <li>Have at least two models. **COMPLETED**</li>
   <li>Include sign up/login capabilities **COMPLETED**</li>
+</ul>
 
 ## Stretch Goals
 <ul>
@@ -51,6 +52,7 @@
   <li>As a user, I want a game recommendation based on how many people I am having over. (use of another API)</li>
   <li>As a user, I want to be able to input ingredients for cocktails I can make.</li>
   <li>As a user, I want to be able to exclude ingredients or include dietary restrictions</li>
+</ul>
 
 ## Tech Being Used 
 <ul>
@@ -84,4 +86,6 @@
   <li>https://www.w3schools.com/html/html_iframe.asp</li>
   <li>https://mdbootstrap.com/plugins/jquery/iframe/</li>
   <li>https://stackoverflow.com/questions/31685402/iframe-not-working-on-heroku</li>
+  <li>https://www.w3schools.com/jsref/jsref_replace.asp</li>
+  <li>https://www.w3schools.com/jsref/jsref_includes.asp</li>
 </ul>

@@ -2,7 +2,6 @@ let modalButtons = document.getElementsByClassName("modalButtonEvent");
 let closeModalButtons = document.getElementsByClassName("closeModal");
 let appetizerIFrame = document.getElementById("appURL");
 
-
 for(let i=0; i<modalButtons.length; i++) {
   modalButtons[i].addEventListener("click", function(e) {
     e.preventDefault();
@@ -18,6 +17,7 @@ for(let i=0; i<modalButtons.length; i++) {
   })
 }
 
+//figure out which modal to close//
 for(let i=0; i<closeModalButtons.length; i++) {
   closeModalButtons[i].addEventListener("click", function(e) {
     e.preventDefault();
@@ -25,4 +25,8 @@ for(let i=0; i<closeModalButtons.length; i++) {
     currentModal.style.display = "none"
   })
 }
+
+
+
+
 

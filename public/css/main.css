@@ -309,8 +309,8 @@ footer {
   width: 100%;
   height: 100%; 
   overflow: auto; 
-  background-color: #b6d0d6; 
-  background-color: r#b6d0d6;
+  background-color: rgb #b6d0d6; 
+  background-color: rgba (0,0,0,0.4);
 }
 
 .modalContent {
