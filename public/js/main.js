@@ -9,7 +9,11 @@ for(let i=0; i<modalButtons.length; i++) {
     let nearestModal = e.target.nextElementSibling;
     let nearestParent = e.target.parentElement
     let iframeElement = nearestParent.getElementsByTagName("IFRAME")[0]
-    iframeElement.src = iframeElement.getAttribute('data-target')
+    iframeURL = iframeElement.getAttribute('data-target')
+    if (!iframeURL.includes("https")) {
+      iframeURL = iframeURL.replace("http", "https")
+    }
+    iframeElement.src = iframeURL
     nearestModal.style.display = "block"
   })
 }
