@@ -4,35 +4,37 @@
     <div class="row">
     <p id="newMenuDirections">To begin, list ingredients you would like to include. List multiple ingredients with a comma between (ex: garlic,salt). If you don't want to choose, simply click "Let's Start Cooking" to begin.</p>
     </div>
-    <form id="newMenuForm" method="POST" action="./createNewMenu">
-      <div class="row">
-        <label class="formLabel" for="app_ingredients">Appetizer Ingredients:  </label>
-      </div>
-      <div class = "row">
-        <input type="text" name="app_ingredients">
-      </div>  
-      <div class="row">
-        <label class="formLabel" for="main_ingredients">Main Dish Ingredients:  </label>
-      </div>
-      <div class= "row">  
-        <input type="text" name="main_ingredients">
-      </div>
-      <div class="row">
-        <label class="formLabel" for="side_ingredients">Side Dish Ingredients:  </label>
-      </div>
-      <div class="row">
-        <input type="text" name="side_ingredients">
-      </div>
-      <div class="row">
-        <label class="formLabel" for="dessert_ingredients">Dessert Ingredients:  </label>
-      </div>
-      <div class="row">
-        <input type="text" name="dessert_ingredients">
-      </div>
-      <div class="row">
-        <button class= "formButton" type="submit">Let's Start Cooking</button>
-      </div>  
-    </form>
+    <div id="newMenuForm">
+      <form method="POST" action="./createNewMenu">
+        <div class="form-row">
+          <label class="formLabel" for="app_ingredients">Appetizer Ingredients:  </label>
+        </div>
+        <div class = "form-row">
+          <input type="text" name="app_ingredients">
+        </div>  
+        <div class="form-row">
+          <label class="formLabel" for="main_ingredients">Main Dish Ingredients:  </label>
+        </div>
+        <div class= "form-row">  
+          <input type="text" name="main_ingredients">
+        </div>
+        <div class="form-row">
+          <label class="formLabel" for="side_ingredients">Side Dish Ingredients:  </label>
+        </div>
+        <div class="form-row">
+          <input type="text" name="side_ingredients">
+        </div>
+        <div class="form-row">
+          <label class="formLabel" for="dessert_ingredients">Dessert Ingredients:  </label>
+        </div>
+        <div class="form-row">
+          <input type="text" name="dessert_ingredients">
+        </div>
+        <div class="form-row">
+          <button class= "formButton" type="submit">Let's Start Cooking</button>
+        </div>  
+      </form>
+    </div>
   <footer class="row">
     <a class="footer" href="https://www.freepik.com/free-photos-vectors/background">Background photo created by freepik - www.freepik.com</a>
   </footer>

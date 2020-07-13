@@ -1,106 +1,160 @@
   <form id="choicesForm" method="POST" action="menu">
-      <div class="form-group row" id="choices">
-        <div class="col-3">
+      <div class="form-group row" id="appetizers">
+        <div class="col-2">
           <h2 class="chooseTitles">Step 1: Choose Your Appetizer:</h2>
-          <ul style="list-style-type: none">
-              <% appetizer.forEach((result) => { %>
-                  <li style="list-style-type: none">
-                    <h4 class="recipeTitle"><%= result.title %></h4> 
-                    <input type="radio" name="appetizerInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/> 
-                    <img id="appPic" src="<%= result.thumbnail %>"/>
-                    <button class="modalButton modalButtonEvent">View Recipe</button>
-                    <div class="modalWindow">
-                      <div class="modalContent">
-                        <span class="closeModal">&times;</span>
-                        <iframe data-target="<%= result.href %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
-                      </div>
-                    </div>
-                  </li>
-                <% }); %>
-                  <li style="list-style-type: none">
-                    <h4>I do not want to choose an appetizer.</h4>
-                    <input type="radio" name="appetizerInfo" value="There is no appetizer on this menu." checked>
-                  </li>
-          </ul>
         </div>
-      <div class="col-3" id="mains">
-        <h2 class="chooseTitles">Step 2: Choose Your Main Course:</h2>
-        <ul style="list-style-type: none">
-          <% main.forEach((result) => { %>
-            <li>
-                <h4 class="recipeTitle"><%= result.title %></h4>
-                <input type="radio" name="mainCourseInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
-                <img id="mainPic" src="<%= result.thumbnail %>">
-                <button class="modalButton modalButtonEvent">View Recipe</button>
-                <div class="modalWindow">
-                  <div class="modalContent">
-                    <span class="closeModal">&times;</span>
-                    <iframe data-target="<%= result.href %>" src="" name="mainIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
-                  </div>
-                </div>
-            </li>  
-          <% }) %>
-          <li style="list-style-type: none">
-            <h4>I do not want to choose a main course.</h4>
-            <input type="radio" name="mainCourseInfo" value="There is no main course on this menu." checked>
-          </li>
-        </ul>
+      <% appetizer.forEach((result) => { %>
+        <div class="col-2">
+          <div class="form-group row">
+            <h4 class="recipeTitle"><%= result.title %></h4> 
+          </div>
+          <div class="form-group row">
+            <input type="radio" name="appetizerInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/> 
+          </div>
+          <div class="form-group row">
+            <img id="appPic" src="<%= result.thumbnail %>"/>
+          </div>
+          <div class="form-group row">
+            <button class="modalButton modalButtonEvent">View Recipe</button>
+            <div class="modalWindow">
+              <div class="modalContent">
+                <span class="closeModal">&times;</span>
+                <iframe data-target="<%= result.href %>" src="" name="appetizerIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+              </div>
+            </div>
+          </div>
+        </div>
+                <% }); %>
+        <div class="col-2">
+          <div class="form-group row">
+            <h4 class="noPick">No appetizer.</h4>
+          </div>
+          <div class="form-group row">
+            <input type="radio" name="appetizerInfo" value="There is no appetizer on this menu." checked>
+          </div>  
+        </div>
       </div>
-      <div class="col-3" id="sides">
+      <div class="form-group row" id="mains">
+        <div class="col-2">
+          <h2 class="chooseTitles">Step 2: Choose Your Main Course:</h2>
+        </div>
+      <% main.forEach((result) => { %>
+        <div class="col-2">
+          <div class="form-group row">
+            <h4 class="recipeTitle"><%= result.title %></h4>
+          </div>
+          <div class="form-group row"> 
+            <input type="radio" name="mainCourseInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/> 
+          </div> 
+          <div class="form-group row">
+            <img id="mainPic" src="<%= result.thumbnail %>">
+          </div> 
+          <div class="form-group row">
+            <button class="modalButton modalButtonEvent">View Recipe</button>
+            <div class="modalWindow">
+              <div class="modalContent">
+                <span class="closeModal">&times;</span>
+                <iframe data-target="<%= result.href %>" src="" name="mainIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+              </div>
+            </div>
+        </div> 
+      </div>
+        <% }) %>
+      <div class="col-2">
+        <div class="form-group row">
+          <h4 class="noPick">No main course.</h4>
+        </div>
+        <div class="form-group row">
+          <input type="radio" name="mainCourseInfo" value="There is no main course on this menu." checked>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row" id="sides">
+      <div class="col-2">
         <h2 class="chooseTitles">Step 3: Choose Your Side Dish:</h2>
-        <ul style="list-style-type: none">
-          <% side.forEach((result) => { %>
-            <li style="list-style-type: none">
-              <h4 class="recipeTitle"><%= result.title %></h4>
-              <input type="radio" name="sideDishInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
-              <img id="sidePic" src="<%= result.thumbnail %>">
-              <button class="modalButton modalButtonEvent">View Recipe</button>
-              <div class="modalWindow">
-                <div class="modalContent">
-                  <span class="closeModal">&times;</span>
-                  <iframe data-target="<%= result.href %>" src="" name="sideIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
-                </div>
-              </div>
-            </li>  
-          <% }) %>
-          <li>
-            <h4>I do not want to choose a side dish.</h4>
-            <input type="radio" name="sideDishInfo" value="There is no side dish on this menu." checked>
-          </li>
-        </ul>
       </div>
-      <div class="col-3" id="desserts">
+    <% side.forEach((result) => { %>
+      <div class="col-2">
+        <div class="form-group row">
+          <h4 class="recipeTitle"><%= result.title %></h4>
+        </div>
+        <div class="form-group row">
+          <input type="radio" name="sideDishInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
+        </div>
+        <div class="form-group row">
+          <img id="sidePic" src="<%= result.thumbnail %>">
+        </div>
+        <div class="form-group row">
+          <button class="modalButton modalButtonEvent">View Recipe</button>
+          <div class="modalWindow">
+            <div class="modalContent">
+              <span class="closeModal">&times;</span>
+              <iframe data-target="<%= result.href %>" src="" name="sideIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+            </div>
+          </div>
+        </div>
+      </div>  
+          <% }) %>
+      <div class="col-2">
+        <div class="form-group row">
+          <h4 class="noPick">No side dish.</h4>
+        </div>
+        <div class="form-group row">
+          <input type="radio" name="sideDishInfo" value="There is no side dish on this menu." checked>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row" id="desserts">
+      <div class="col-2">
         <h2 class="chooseTitles">Step 4: Choose Your Dessert:</h2>
-        <ul style="list-style-type: none">
-          <% dessert.forEach((result) => { %>
-            <li style="list-style-type: none">
-              <h4 class="recipeTitle"><%= result.title %></h4>
-              <input type="radio" name="dessertInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
-              <img id="dessertPic" src="<%= result.thumbnail %>">
-              <button class="modalButton modalButtonEvent">View Recipe</button>
-              <div class="modalWindow">
-                <div class="modalContent">
-                  <span class="closeModal">&times;</span>
-                  <iframe data-target="<%= result.href %>" src="" name="dessertIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
-                </div>
-              </div>
-            </li>  
+      </div>
+    <% dessert.forEach((result) => { %>
+      <div class="col-2">
+        <div class="form-group row">
+          <h4 class="recipeTitle"><%= result.title %></h4>
+        </div>
+        <div class="form-group row">
+          <input type="radio" name="dessertInfo" value="<%= result.title %> | <%=result.href %> | <%= result.thumbnail %>"/>  
+        </div>
+        <div class="form-group row">
+          <img id="dessertPic" src="<%= result.thumbnail %>">
+        </div>
+        <div class="form-group row">
+          <button class="modalButton modalButtonEvent">View Recipe</button>
+          <div class="modalWindow">
+            <div class="modalContent">
+              <span class="closeModal">&times;</span>
+              <iframe data-target="<%= result.href %>" src="" name="dessertIFrame" title="Recipe Opened in New Webpage" height="600px" width="600px"></iframe> 
+            </div>
+          </div>
+        </div>
+      </div>  
           <% }) %>
-          <li>
-            <h4>I do not want to choose a dessert.</h4>
-            <input type="radio" name="dessertInfo" value="There is no dessert on this menu." checked>
-          </li>
-        </ul>
+      <div class="col-2">
+        <div class="form-group row">
+          <h4 class="noPick">No dessert.</h4>
+        </div>
+        <div class="form-group row">
+          <input type="radio" name="dessertInfo" value="There is no dessert on this menu." checked>
+        </div>
       </div>
     </div>
-    <div class="row" id="menuName">
-      <h2 class="chooseTitles" id="step5">Step 5: Name Your Menu</h2>
-      <p class="namingDirections">Name your custom menu below (think 'Summer Dinner' or 'Bridal Shower Brunch'), then select an appetizer, main course, side dish and dessert by clicking the circle next to the one you want to add. Finally, click "Add to Menu" to save your menu. Don't worry, you can always update your menu on the next page!</p>
-      <label class="namingDirections" for="menuName">Menu Name:</label>
-      <input type="text" name="menuName" placeholder="Menu Name" value="*"/>
-    </div>
-    <div class = "row">
-      <input type="submit" name="submitName" value="Add Your Menu" class="modalButton" >
+    <div class="form-group row" id="menuName">
+      <div class="col-2">
+        <h2 class="chooseTitles" id="step5">Step 5: Name Your Menu</h2>
+      </div>
+      <div class="col-4">
+        <p class="namingDirections">Name your custom menu below (think 'Summer Dinner' or 'Bridal Shower Brunch'). Click "Add to Menu" to save your menu.</p>
+      </div>
+      <div class="col-2">
+        <label class="namingDirections" for="menuName">Menu Name:</label>
+      </div>
+      <div class="col-2">
+        <input type="text" name="menuName" placeholder="Menu Name" value="*"/>
+      </div>
+      <div class="col-2">
+        <input type="submit" name="submitName" value="Add Your Menu" class="modalButton" >
+      </div>
     </div>
   </form>
   <footer>

@@ -18,7 +18,7 @@ header {
 
 #navbar {
   display: flex;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   background-color: #b6d0d6;
   color: white;
@@ -104,6 +104,40 @@ header {
   text-align: center;
 }
 
+#registerRow {
+  margin-left: 50%;
+}
+
+.indexLinks {
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+
+}
+
+#loginForm {
+  margin-left: 50%;
+}
+
+#registerForm {
+  margin-left: 50%;
+}
+
+.loginFormLabel {
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#authEmail {
+  width: 50%;
+}
+
+#authPassword {
+  width: 50%;
+}
+
 #profile {
   background-image: url("/images/profileBackground.jpg");
   background-size: cover;
@@ -116,14 +150,16 @@ header {
 footer {
   position: fixed;
   bottom: 0;
-  left: 25%;
-  right: 25%;
+  margin-top: 30px;
+  color: white;
 }
 
 .footer {
   color: white;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
+  margin-top: 30px;
+  justify-content: center;
 }
 
 .title {
@@ -131,8 +167,8 @@ footer {
   font-weight: bold;
   font-size: 48px;
   color: white;
-  margin-left: 40%;
   text-align: center;
+  margin-right: 20%;
 }
 
 #welcome {
@@ -140,43 +176,43 @@ footer {
   font-weight: bold;
   font-size: 36px;
   color: white;
-  margin-left: 40%;
   text-align: center;
+  margin-right: 20%;
 }
 
 #moreDetails {
   font-family: 'Quicksand', sans-serif;
   font-style: italic;
-  font-size: 30px;
-  color: white;
-  margin-left: 40%;
+  font-size: 33px;
+  font-weight: bolder;
+  color: #b6d0d6;
   text-align: center;
+  margin-right: 20%;
 }
 
 #evenMoreDetails {
   font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
   font-size: 30px;
   color: white;
-  margin-left: 40%;
   text-align: center;
+  margin-right: 20%;
 }
 
 #details2 {
   font-family: 'Quicksand', sans-serif;
   font-size: 24px;
   color: white;
-  margin-left: 40%;
   text-align: center;
+  margin-right: 20%;
 }
 
 #directions {
     font-family: 'Quicksand', sans-serif;
     font-size: 25px;
-    font-weight: bold;
+    font-weight: bolder;
     color: white;
-    margin-left: 40%;
     text-align: center;
+    margin-right: 20%;
   }
 
 #newMenuButton {
@@ -184,9 +220,10 @@ footer {
   font-size: 20px;
   font-weight: bold;
   color: white;
-  margin-left: 40%;
-  text-align: center;
   justify-content: space-evenly;
+  background-color: #b6d0d6;
+  text-align: center;
+  margin-right: 20%;
 }
 
 #createNewMenu {
@@ -324,14 +361,22 @@ h1 {
   text-align: center;
 }
 
-.menuDisplayTitle {
+#menuDisplayTitleOne {
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 45px;
   color: white;
   text-align: center;
 }
 
+.menuDisplayTitleTwo {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  color: white;
+  text-align: center;
+  margin-bottom: 25px;
+}
 .itemTitle {
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
@@ -340,19 +385,22 @@ h1 {
   text-align: center;
 }
 
+.row {
+  justify-content: center;
+}
+
 .courseTitle {
   font-family: 'Quicksand', sans-serif;
   color: white;
-  font-size: 50px;
-  font-weight: bold;
-  text-align: center;
+  font-size: 40px;
+  font-weight: bolder;
 }
 
 .otherButton {
-  background-color: #b6d0d6;
-  color: white;
+  background-color: white;
+  color: #b6d0d6;
   font-family: 'Quicksand', sans-serif;
-  padding: 6px 14px;
+  padding: 3px 8px;
   margin-top: 5px;
   font-size: 18px;
 }
@@ -361,10 +409,13 @@ h1 {
   margin-bottom: 20px;
 }
 
+#makeChangesButtons {
+  margin-top: 30px;
+}
+
 #allMenus {
   background-image: url("/images/favoritesAndAllMenusBackground.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
   align-content: space-between;
   height: 100%;
   width: 100%;
@@ -374,42 +425,97 @@ h1 {
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   font-size: 48px;
-  color: white;
+  color: #b6d0d6;
   text-align: center;
-  margin-left: 50%;
 }
 
 .menuList {
   font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 24px;
-  color: white;
+  color: #b6d0d6;
+  text-shadow: lightslategrey;
   text-align: center;
-  margin-left: 50%;
 }
 
 #favorites {
   background-image: url("/images/favoritesAndAllMenusBackground.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
   align-content: space-between;
   height: 100%;
   width: 100%;
-}
-#savedRecipeTitle {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
-  font-size: 48px;
-  color: white;
-  text-align: center;
-  margin-left: 50%;
 }
 
 #recipeDetails {
   background-image: url("/images/menuAndRecipeDetailsBackground.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
   align-content: space-between;
   height: 100%;
   width: 100%;
+}
+
+#savedRecipeTitle {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 48px;
+  color: #b6d0d6;
+  text-align: center;
+}
+
+#savedRecipeDetailsTitle {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 48px;
+  color: white;
+  text-align: center;
+}
+
+#savedRecipeFoodPic {
+  height: 100px;
+  width: 100px;
+  justify-content: center;
+}
+
+#iFrame {
+  margin-top: 40px;
+}
+
+.recipeList {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #b6d0d6;
+  text-align: center;
+}
+
+.name {
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+#saveButton {
+  margin-left: 8px;
+}
+
+#newNameSpace {
+  margin-right: 8px;
+}
+
+#newMenuSpace {
+  margin-right: 8px;
+}
+
+#saveMenuNameButton {
+  margin-left: 8px; 
+}
+
+#form-group.row {
+  width: 100%;
+}
+
+.noPick {
+  color: #b6d0d6;
 }

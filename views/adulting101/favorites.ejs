@@ -1,11 +1,11 @@
 <h1 id="savedRecipeTitle">Favorite Recipes:</h1>
-  <ul style="list-style-type: none">
+  <ul style="list-style-type: none;">
     <% allFavorites.forEach((favorite) => { %>
-      <li class="menuList" style="list-style-type: none">
-        <a class="menuList" href="adulting101/favorites/<%= favorite.id %>"><%= favorite.name %></a>
+      <li class="recipeList" style="list-style-type: none;">
+        <a class="recipeList" href="./favorites/<%= favorite.id %>"><%= favorite.name %></a>
       </li>
     <% }) %>
   </ul>
 <footer>
-  <a href='https://www.freepik.com/free-photos-vectors/new-year'>New year photo created by freepik - www.freepik.com</a>
+  <a href='https://www.freepik.com/free-photos-vectors/background'>Background photo created by freepik - www.freepik.com</a>
 </footer>

@@ -1,6 +1,24 @@
-<div id="recipeDetails">
-  <h1> AT LEAST YOU MADE IT</h1>
-  <footer>
-    <a href='https://www.freepik.com/free-photos-vectors/background'>Background photo created by pvproductions - www.freepik.com</a>
-  </footer>
+<h1 id="savedRecipeDetailsTitle"><%= name %></h1>
+<div class="row">
+  <img id="savedRecipeFoodPic" src="<%= image %>">
 </div>
+<div class="row" id="iFrame">
+<iframe src="<%= url %>" name="recipeIFrame" title="Recipe Opened in New Webpage" height="400px" width="600px"></iframe> 
+<div class="row" id="makeChangesButtons">
+  <div class="col-4">
+    <form method="POST" action="/adulting101/favorites/<%= id %>/?_method=DELETE">
+      <input type="submit" value="Delete This Recipe" class="otherButton">
+    </form>
+  </div>
+  <div class="col-8">
+    <form id="nameChange" method="POST" action="/adulting101/favorites/<%= id %>/?_method=PUT">
+      <div class="form-row">
+        <label class="name" for="recipeName">New Name: </label>
+        <input id="newMenuSpace" type="text" name="name" value="<%= name %>">
+        <input id="saveMenuNameButton" type="submit" value="Save" class="otherButton">
+      </div>
+    </form>
+  </div>
+<footer>
+  <a class="footer" href='https://www.freepik.com/free-photos-vectors/background'>Background photo created by pvproductions - www.freepik.com</a>
+</footer>

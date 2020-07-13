@@ -1,14 +1,10 @@
-<h1 class="menuDisplayTitle">Congratulations! Here is your new menu:</h1>
-<div class="row" id="chosenAppetizer">
-  <h4 class="courseTitle">Appetizer:</h4>
-</div>
+<h1 id="menuDisplayTitleOne">Congratulations!</h1>
+<h1 class="menuDisplayTitleTwo">Here is your new menu:</h1>
+<h4 class="courseTitle">Appetizer:</h4>
+<p class="itemTitle"> <%= currentAppetizer[0] %> </p>
+<img class="foodPicture" src="<%= currentAppetizer[2] %>">
 <div class="row">
-  <p class="itemTitle"> <%= currentAppetizer[0] %> </p>
-</div>
-<div class="row">
-  <img class="foodPicture" src="<%= currentAppetizer[2] %>">
-<div class="row">
-  <div class="col">
+  <div class="col-2">
     <button class="modalButton modalButtonEvent">View Recipe</button>
     <div class="modalWindow">
       <div class="modalContent">
@@ -17,24 +13,18 @@
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col-2">
     <form method="POST" action="favorites">
       <input type="hidden" name="favoriteInfo" value="<%= currentAppetizer[0] %> | <%= currentAppetizer[1] %> | <%= currentAppetizer[2] %>">
-      <input type="submit" value="Save to Favorites">
+      <input type="submit" value="Save to Favorites" class="modalButton">
     </form>
   </div>
 </div>
-<div class="row" id="chosenMainCourse">
-  <h4 class="courseTitle">Main Course:</h4>
-</div>
+<h4 class="courseTitle">Main Course:</h4>
+<p class="itemTitle"><%= currentMain[0] %></p>
+<img class="foodPicture" src="<%= currentMain[2] %>">
 <div class="row">
-  <p class="itemTitle"><%= currentMain[0] %> </p>
-</div>
-<div class="row">
-  <img class="foodPicture" src="<%= currentMain[2] %>">
-</div>
-<div class="row">
-  <div class="col">
+  <div class="col-2">
     <button class="modalButton modalButtonEvent">View Recipe</button>
     <div class="modalWindow">
       <div class="modalContent">
@@ -43,24 +33,18 @@
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col-2">
     <form method="POST" action="favorites">
       <input type="hidden" name="favoriteInfo" value="<%= currentMain[0] %> | <%= currentMain[1] %> | <%= currentMain[2] %>">
-      <input type="submit" value="Save to Favorites">
+      <input type="submit" value="Save to Favorites" class="modalButton">
     </form>
   </div>
 </div>
-<div class="row" id="chosenSide">
-  <h4 class="courseTitle">Side Dish:</h4>
-</div>
+<h4 class="courseTitle">Side Dish:</h4>
+<p class="itemTitle"><%= currentSide[0] %> </p>
+<img class="foodPicture" src="<%= currentSide[2] %>">
 <div class="row">
-  <p class="itemTitle"><%= currentSide[0] %> </p>
-</div>
-<div class="row">
-  <img class="foodPicture" src="<%= currentSide[2] %>">
-</div>
-<div class="row">
-  <div class="col">
+  <div class="col-2">
     <button class="modalButton modalButtonEvent">View Recipe</button>
     <div class="modalWindow">
       <div class="modalContent">
@@ -69,24 +53,18 @@
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col-2">
     <form method="POST" action="favorites">
       <input type="hidden" name="favoriteInfo" value="<%= currentSide[0] %> | <%= currentSide[1] %> | <%= currentSide[2] %>">
-      <input type="submit" value="Save to Favorites">
+      <input type="submit" value="Save to Favorites" class="modalButton">
     </form>
   </div>
 </div>
-<div class="row" id="chosenDessert">
-  <h4 class="courseTitle">Dessert:</h4>
-</div>
+<h4 class="courseTitle">Dessert:</h4>
+<p class="itemTitle"><%= currentDessert[0] %></p>
+<img class="foodPicture" src="<%= currentDessert[2] %>">
 <div class="row">
-  <p class="itemTitle"><%= currentDessert[0] %></p>
-</div>
-<div class="row">
-  <img class="foodPicture" src="<%= currentDessert[2] %>">
-</div>
-<div class="row">
-  <div class="col">
+  <div class="col-2">
     <button class="modalButton modalButtonEvent">View Recipe</button>
     <div class="modalWindow">
       <div class="modalContent">
@@ -95,10 +73,10 @@
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col-2">
     <form method="POST" action="favorites">
       <input type="hidden" name="favoriteInfo" value="<%= currentDessert[0] %> | <%= currentDessert[1] %> | <%= currentDessert[2] %>">
-      <input type="submit" value="Save to Favorites">
+      <input type="submit" value="Save to Favorites" class="modalButton">
     </form>
   </div>
 </div>

@@ -10,6 +10,7 @@ router.get('/createNewMenu', ((req, res) => {
 
 router.post('/createNewMenu', ((req, res) => {
   let appetizerUrl = `http://www.recipepuppy.com/api/?q=appetizer&i=${req.body.app_ingredients}`
+  console.log(req.body.app_ingredients)
   axios.get(appetizerUrl).then((apiResponse) => {
     let apiResults = apiResponse.data.results
     let appetizerOptions = apiResults.filter((result) => {
@@ -138,10 +139,11 @@ router.delete('/:id', (req, res) => {
     }
   }).then(deleted => {
     console.log("See you later alligator. In a while crocodile.")
-    res.redirect('/profile', {bodyId: "profile"})
-  }).catch((error) => 
-  console.log(error)
-)});
+    res.render('adulting101/createNewMenu', {bodyId: "createNewMenu"})
+    }).catch((error) => {
+      console.log(error)
+    })
+  });
 
 router.post('/favorites', ((req, res) => {
   db.user.findOne({
@@ -163,13 +165,21 @@ router.post('/favorites', ((req, res) => {
         thumbnail: recipeImage
   }).then(favoriteRecipe => {
     foundUser.addFavorite(favoriteRecipe)
-    res.render('./profile', {bodyId: "profile"})
+    db.favorite.findAll({
+      where: {
+        userId: foundUser.id,
+      }
+    }).then((favorites) => {
+      let favoriteList = JSON.stringify(favorites);
+      let favoriteData = JSON.parse(favoriteList)
+      res.render('adulting101/favorites', {allFavorites: favoriteData, bodyId: "favorites"})
   }).catch((error) => 
   console.log(error)
   )
   })
   })
-)
+}))
+
 
 router.put('/:id', ((req, res) => {
   db.menu.update({
@@ -179,28 +189,98 @@ router.put('/:id', ((req, res) => {
       id: req.params.id
     }
   }).then(updated => {
-    console.log("You successfully updated the menu name to" + req.body.name)
-    res.render('./profile', {bodyId: "profile"})
+    db.menu.findOne({
+      where: {
+        id: req.params.id, 
+      }
+    }).then((foundMenu) => {
+      let thisMenu = JSON.stringify(foundMenu);
+      let thisMenuData = JSON.parse(thisMenu)
+      let appetizer = thisMenuData.appetizer
+      let main = thisMenuData.main
+      let side = thisMenuData.side
+      let dessert = thisMenuData.dessert
+      let appetizerData = appetizer.split("|")
+      let mainCourseData = main.split("|")
+      let sideData = side.split("|")
+      let dessertData = dessert.split("|")
+      res.render('adulting101/menuDetails', {menu: thisMenuData, appetizer: appetizerData, main: mainCourseData, side: sideData, dessert: dessertData, bodyId: 'menu'})
   }).catch((error) => {
     console.log(error)
   })
-}))
+})
+}));
 
-router.get('favorites/:id', ((req, res) => {
+router.get('/favorites/:id', ((req, res) => {
   db.favorite.findOne({
     where: {
       id: req.params.id
     }
   }).then((foundFavorite) => {
-    let thisRecipe = JSON.stringify(foundFavorite)
-    let recipeData = JSON.parse(thisRecipe)
-    let name = recipeData.name
-    let url = recipeData.url
-    let image = recipeData.thumbnail
-    res.render('adulting101/recipeDetails')
+      console.log(foundFavorite)
+      let thisRecipe = JSON.stringify(foundFavorite)
+      let recipeData = JSON.parse(thisRecipe)
+      let id = recipeData.id
+      let name = recipeData.name
+      console.log(name)
+      let url = recipeData.url
+      console.log(url)
+      let image = recipeData.thumbnail
+      console.log(image)
+      res.render('adulting101/recipeDetails', {id: id, name: name, url: url, image: image, bodyId: "recipeDetails"})
   }).catch((error) => 
     console.log(error)
   )
 }))
+
+router.put('/favorites/:id', ((req, res) => {
+  db.favorite.update({
+    name: req.body.name
+  }, {
+    where: {
+      id: req.params.id
+    }
+  }).then(updated => {
+    db.favorite.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then((foundFavorite) => {
+      let thisRecipe = JSON.stringify(foundFavorite)
+      let recipeData = JSON.parse(thisRecipe)
+      let id = recipeData.id
+      let name = recipeData.name
+      console.log(name)
+      let url = recipeData.url
+      console.log(url)
+      let image = recipeData.thumbnail
+      console.log(image)
+      res.render('adulting101/recipeDetails', {id: id, name: name, url: url, image: image, bodyId: "recipeDetails"})
+  }).catch((error) => {
+    console.log(error)
+  })
+})
+}));
+
+router.delete('/favorites/:id', (req, res) => {
+  db.favorite.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(deleted => {
+    console.log("See you later alligator. In a while crocodile.")
+    db.favorite.findAll({
+      where: {
+        userId: req.user.id,
+      }
+    }).then((favorites) => {
+      let favoriteList = JSON.stringify(favorites);
+      let favoriteData = JSON.parse(favoriteList)
+      res.redirect('adulting101/favorites', {allFavorites: favoriteData, bodyId: "favorites"})
+    }).catch((error) => {
+      console.log(error)
+    })
+  })
+  });
 
 module.exports = router;

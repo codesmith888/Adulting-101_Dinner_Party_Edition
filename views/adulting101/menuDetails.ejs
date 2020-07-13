@@ -1,15 +1,8 @@
-<h1 class="menuDisplayTitle">Check Out Your <%= menu.name %> Menu!</h1>
-<div class="row" id="Appetizer">
-  <h2 class="courseTitle">Appetizer:</h2>
-</div>
+<h1 class="menuDisplayTitleTwo">Check Out Your <%= menu.name %> Menu!</h1>
+<h2 class="courseTitle">Appetizer:</h2>
+<img class="foodPicture" src="<%= appetizer[2] %>">
 <div class="row">
-    <h3 class="itemTitle"> <%= appetizer[0] %> </h3>
-</div>
-<div class="row">
-    <img class="foodPicture" src="<%= appetizer[2] %>">
-</div>
-<div class="row">
-  <div class="col-6">
+  <div class="col-2">
     <button class="modalButton modalButtonEvent">View Recipe</button>
     <div class="modalWindow">
       <div class="modalContent">
@@ -18,24 +11,18 @@
       </div>
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-2">
     <form method="POST" action="favorites">
       <input type="hidden" name="favoriteInfo" value="<%= appetizer[0] %> | <%= appetizer[1] %> | <%= appetizer[2] %>">
       <input type="submit" value="Save to Favorites" class="modalButton">
     </form>
   </div>
 </div>
-<div class="row" id="mainCourse">
-  <h2 class="courseTitle">Main Course:</h2>
-</div>
+<h2 class="courseTitle">Main Course:</h2>
+<h4 class="itemTitle"><%= main[0] %> </h4>
+<img class="foodPicture" src="<%= main[2] %>">
 <div class="row">
-  <h4 class="itemTitle"><%= main[0] %> </h4>
-</div>
-<div class="row">
-  <img class="foodPicture" src="<%= main[2] %>">
-</div>
-<div class="row">
-  <div class="col">
+  <div class="col-2">
     <button class="modalButton modalButtonEvent">View Recipe</button>
     <div class="modalWindow">
       <div class="modalContent">
@@ -44,24 +31,18 @@
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col-2">
     <form method="POST" action="favorites">
       <input type="hidden" name="favoriteInfo" value="<%= main[0] %> | <%= main[1] %> | <%= main[2] %>">
       <input type="submit" value="Save to Favorites" class="modalButton">
     </form>
   </div>
 </div>
-<div class="row" id="side">
-  <h2 class="courseTitle">Side Dish:</h2>
-</div>
+<h2 class="courseTitle">Side Dish:</h2>
+<h4 class="itemTitle"><%= side[0] %> </h4>
+<img class="foodPicture" src="<%= side[2] %>">
 <div class="row">
-  <h4 class="itemTitle"><%= side[0] %> </h4>
-</div>
-<div class="row">
-  <img class="foodPicture" src="<%= side[2] %>">
-</div>
-<div class="row">
-  <div class="col">
+  <div class="col-2">
     <button class="modalButton modalButtonEvent">View Recipe</button>
     <div class="modalWindow">
       <div class="modalContent">
@@ -70,24 +51,18 @@
         </div>
       </div>
   </div>
-  <div class="col">
+  <div class="col-2">
     <form method="POST" action="favorites">
       <input type="hidden" name="favoriteInfo" value="<%= side[0] %> | <%= side[1] %> | <%= side[2] %>">
       <input type="submit" value="Save to Favorites" class="modalButton">
     </form>
   </div>
 </div>
-<div class="row" id="dessert">
-  <h2 class="courseTitle">Dessert:</h2>
-</div>
+<h2 class="courseTitle">Dessert:</h2>
+<h4 class="itemTitle"><%= dessert[0] %></h4>
+<img class="foodPicture" src="<%= dessert[2] %>">
 <div class="row">
-  <h4 class="itemTitle"><%= dessert[0] %></h4>
-</div>
-<div class="row">
-  <img class="foodPicture" src="<%= dessert[2] %>">
-</div>
-<div class="row">
-  <div class="col">
+  <div class="col-2">
     <button class="modalButton modalButtonEvent">View Recipe</button>
     <div class="modalWindow">
       <div class="modalContent">
@@ -96,25 +71,26 @@
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col-2">
     <form method="POST" action="favorites">
       <input type="hidden" name="favoriteInfo" value="<%= dessert[0] %> | <%= dessert[1] %> | <%= dessert[2] %>">
       <input type="submit" value="Save to Favorites" class=modalButton>
     </form>
   </div>
 </div>
-
-<div class="row">
-  <div class="col">
+<div class="row" id="makeChangesButtons">
+  <div class="col-4">
     <form method="POST" action="/adulting101/<%= menu.id %>/?_method=DELETE">
       <input type="submit" value="Delete This Menu" class="otherButton">
     </form>
   </div>
-  <div class="col">
+  <div class="col-8">
     <form id="nameChange" method="POST" action="/adulting101/<%= menu.id %>/?_method=PUT">
-      <label for="menuName">New Menu Name</label>
-      <input type="text" name="name" value="<%= menu.name %>">
-      <input type="submit" value="Edit Menu Name" class="otherButton">
+      <div class="form-row">
+        <label class="name" for="menuName">New Menu Name:</label>
+        <input id="newNameSpace" type="text" name="name" value="<%= menu.name %>">
+        <input id="saveButton" type="submit" value="Save" class="otherButton">
+      </div>
     </form>
   </div>
 </div>
